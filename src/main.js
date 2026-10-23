@@ -3,6 +3,7 @@ import {
   getConfig,
   setConfig,
   getCatalogo,
+  getPresentaciones,
   catalogoInicial,
   getVentas,
   registrarVenta,
@@ -15,6 +16,7 @@ import {
 } from './data.js';
 import { esc, money, norm, imgSrc, agotado as estaAgotado } from './marca.js';
 import qrcode from 'qrcode-generator';
+import { ML_BASE, tamanos, precioEn, descuentoRelleno } from './presentaciones.js';
 
 /* ---------- Utilidades ---------- */
 
@@ -36,6 +38,7 @@ const ICON = {
   wa: '<svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8L4 20Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2L9 9.5Z"/></svg>',
   plus: '<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>',
   minus: '<svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg>',
+  refill: '<svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v3M14 3v3M8 6h8l1 3v10a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9l1-3Z"/><path d="M10 14.5a2 2 0 1 0 4 0c0-1.3-2-3.5-2-3.5s-2 2.2-2 3.5Z"/></svg>',
   sync: '<svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.5-4.5L4 8M4 4v4h4M4 13a8 8 0 0 0 14.5 4.5L20 16M20 20v-4h-4"/></svg>',
 };
 
@@ -50,6 +53,8 @@ const state = {
   filtro: 'Todos',
   q: '',
   carrito: [],
+  tabla: getPresentaciones(),
+  ml: Number(localStorage.getItem('fs.ml')) || ML_BASE,
   catalogo: getCatalogo(),
   fuenteCatalogo: localStorage.getItem('fs.catalogo') ? 'hoja' : 'integrado',
   cobro: { descuento: 0, descTipo: '$', metodo: 'Efectivo', recibido: '', notas: '' },
@@ -134,6 +139,12 @@ function vistaVender() {
     <div class="chips" id="filtros">${FILTROS.map(
       (f) => `<button class="chip ${state.filtro === f ? 'on' : ''}" data-action="filtro" data-f="${f}">${f}</button>`,
     ).join('')}</div>
+    <div class="pres-bar">
+      <span class="lbl">Presentación</span>
+      <div class="seg pres" id="pres">${tamanos(state.tabla)
+        .map((ml) => `<button class="${state.ml === ml ? 'on' : ''}" data-action="ml" data-ml="${ml}">${ml} ml</button>`)
+        .join('')}</div>
+    </div>
     <div class="grid" id="grid"></div>`;
 }
 
@@ -152,7 +163,8 @@ function filtrar() {
 
 function renderGrid() {
   const lista = filtrar();
-  const enCarrito = Object.fromEntries(state.carrito.map((i) => [i.id, i.cantidad]));
+  const enCarrito = {};
+  state.carrito.forEach((i) => (enCarrito[i.id] = (enCarrito[i.id] || 0) + i.cantidad));
   $('#grid').innerHTML = lista.length
     ? lista
         .map((p) => {
@@ -169,7 +181,7 @@ function renderGrid() {
             <div class="meta">
               <span class="g">${esc(p.genero)}</span>
               <h3>${esc(p.nombre)}</h3>
-              <div class="row"><b class="price">${money(p.precio)}</b>${stock}</div>
+              <div class="row"><b class="price">${money(precioEn(p, state.ml, state.tabla))}</b>${stock}</div>
             </div>
           </div>`;
         })
@@ -177,12 +189,32 @@ function renderGrid() {
     : `<p class="empty">No hay perfumes con “${esc(state.q)}”.</p>`;
 }
 
-function agregar(id, cantidad = 1) {
+/* ---------- Líneas de venta (presentación y envase rellenado) ---------- */
+
+const claveLinea = (i) => (i.id ? `${i.id}|${i.ml}|${i.rellenado ? 1 : 0}` : i.key);
+const descLinea = (i) => (i.rellenado && i.ml ? descuentoRelleno(i.ml, state.tabla) : 0);
+const unitario = (i) => Math.max(0, i.precio - descLinea(i));
+const nombreLinea = (i) => (i.ml ? `${i.nombre} ${i.ml} ml${i.rellenado ? ' (rellenado)' : ''}` : i.nombre);
+
+// Tras cambiar presentación o rellenado, une líneas que quedaron iguales.
+function normalizarCarrito() {
+  const unidas = [];
+  for (const i of state.carrito) {
+    i.key = claveLinea(i);
+    const igual = unidas.find((x) => x.key === i.key);
+    if (igual) igual.cantidad += i.cantidad;
+    else unidas.push(i);
+  }
+  state.carrito = unidas;
+}
+
+function agregar(id, cantidad = 1, ml = state.ml) {
   const p = state.catalogo.find((x) => x.id === id);
   if (!p) return;
-  const item = state.carrito.find((i) => i.id === id);
+  const nuevo = { id, nombre: p.nombre, ml, rellenado: false, precio: precioEn(p, ml, state.tabla), cantidad, imagen: p.imagen };
+  const item = state.carrito.find((i) => i.key === claveLinea(nuevo));
   if (item) item.cantidad += cantidad;
-  else state.carrito.push({ key: id, id, nombre: p.nombre, precio: p.precio, cantidad, imagen: p.imagen });
+  else state.carrito.push({ ...nuevo, key: claveLinea(nuevo) });
   vibrar();
   if (state.vista === 'vender') renderGrid();
   renderCartbar(true);
@@ -196,7 +228,7 @@ function renderCartbar(bump = false) {
     bar.innerHTML = '';
     return;
   }
-  const total = state.carrito.reduce((s, i) => s + i.cantidad * i.precio, 0);
+  const total = state.carrito.reduce((s, i) => s + i.cantidad * unitario(i), 0);
   bar.className = `cartbar ${bump ? 'bump' : ''}`;
   bar.innerHTML = `
     <button class="cart-sum" data-action="cobrar"><span class="badge">${piezas}</span>${piezas === 1 ? 'pieza' : 'piezas'} · <b>${money(total)}</b></button>
@@ -226,22 +258,26 @@ function modalDetalle(id) {
       <span class="g">${esc(p.genero)} · ${esc((p.familias || []).join(' · '))}</span>
       <h2>${esc(p.nombre)}</h2>
       <p>${esc(p.descripcion)}</p>
-      <div class="det-foot">
-        <b class="price big">${money(p.precio)}</b>
-        <button class="btn primary" data-action="agregar-cerrar" data-id="${esc(p.id)}">Agregar</button>
-      </div>
+      <div class="lbl">Agregar a la venta</div>
+      <div class="pres-grid">${tamanos(state.tabla)
+        .map(
+          (ml) => `<button class="pres-btn ${ml === state.ml ? 'on' : ''}" data-action="agregar-cerrar" data-id="${esc(p.id)}" data-ml="${ml}">
+            <span>${ml} ml</span><b>${money(precioEn(p, ml, state.tabla))}</b></button>`,
+        )
+        .join('')}</div>
     </div>`,
     'detalle',
   );
 }
 
 function totales() {
-  const subtotal = state.carrito.reduce((s, i) => s + i.cantidad * i.precio, 0);
+  const subtotal = state.carrito.reduce((s, i) => s + i.cantidad * unitario(i), 0);
   const c = state.cobro;
   const descuento = Math.min(subtotal, c.descTipo === '%' ? Math.round((subtotal * num(c.descuento)) / 100) : num(c.descuento));
   const total = subtotal - descuento;
   const recibido = num(c.recibido);
-  return { subtotal, descuento, total, recibido, cambio: recibido - total };
+  const rellenos = state.carrito.reduce((s, i) => s + i.cantidad * descLinea(i), 0);
+  return { subtotal, descuento, rellenos, total, recibido, cambio: recibido - total };
 }
 
 function modalCobro() {
@@ -273,6 +309,21 @@ function modalCobro() {
             <b>${i.cantidad}</b>
             <button data-action="mas" data-key="${esc(i.key)}" aria-label="Agregar uno">${ICON.plus}</button>
           </div>
+          ${
+            i.ml
+              ? `<div class="ln-opts">
+            <div class="ml-chips">${tamanos(state.tabla)
+              .map(
+                (ml) =>
+                  `<button class="${i.ml === ml ? 'on' : ''}" data-action="linea-ml" data-key="${esc(i.key)}" data-ml="${ml}">${ml}</button>`,
+              )
+              .join('')}<span>ml</span></div>
+            <button class="relleno ${i.rellenado ? 'on' : ''}" data-action="relleno" data-key="${esc(i.key)}" aria-pressed="${i.rellenado}">
+              ${ICON.refill} Envase rellenado <b>−${money(descuentoRelleno(i.ml, state.tabla))}</b>
+            </button>
+          </div>`
+              : ''
+          }
         </li>`,
         )
         .join('')}</ul>
@@ -322,7 +373,8 @@ function modalCobro() {
 
 function htmlTotales(t, efectivo) {
   return `
-    <div><dt>Subtotal</dt><dd>${money(t.subtotal)}</dd></div>
+    <div><dt>Productos</dt><dd>${money(t.subtotal + t.rellenos)}</dd></div>
+    ${t.rellenos ? `<div class="chg"><dt>Envases rellenados</dt><dd>−${money(t.rellenos)}</dd></div>` : ''}
     ${t.descuento ? `<div><dt>Descuento</dt><dd>−${money(t.descuento)}</dd></div>` : ''}
     <div class="grand"><dt>Total</dt><dd>${money(t.total)}</dd></div>
     ${
@@ -361,7 +413,15 @@ async function confirmarVenta() {
   const t = totales();
   const c = state.cobro;
   const venta = registrarVenta({
-    items: state.carrito,
+    items: state.carrito.map((i) => ({
+      id: i.id,
+      nombre: nombreLinea(i),
+      precio: unitario(i),
+      cantidad: i.cantidad,
+      ml: i.ml || null,
+      rellenado: !!i.rellenado,
+      descRelleno: descLinea(i),
+    })),
     descuento: t.descuento,
     metodo: c.metodo,
     recibido: c.metodo === 'Efectivo' && c.recibido !== '' ? t.recibido : null,
@@ -638,6 +698,7 @@ async function actualizarCatalogo({ silencioso = true } = {}) {
     if (productos.length) {
       state.catalogo = productos;
       state.fuenteCatalogo = 'hoja';
+      state.tabla = getPresentaciones();
     }
     if (!silencioso)
       toast(productos.length ? `Conectado ✓ ${productos.length} perfumes` : 'Conectado ✓ La hoja Catalogo está vacía', 'ok');
@@ -701,7 +762,7 @@ async function onClick(e) {
       modalDetalle(el.dataset.id);
       break;
     case 'agregar-cerrar':
-      agregar(el.dataset.id);
+      agregar(el.dataset.id, 1, Number(el.dataset.ml) || state.ml);
       cerrarModal();
       toast('Agregado ✓');
       break;
@@ -719,6 +780,37 @@ async function onClick(e) {
         render();
       }
       break;
+    case 'ml':
+      state.ml = Number(el.dataset.ml);
+      try {
+        localStorage.setItem('fs.ml', state.ml);
+      } catch {
+        /* sin almacenamiento */
+      }
+      document.querySelectorAll('#pres button').forEach((b) => b.classList.toggle('on', b === el));
+      renderGrid();
+      break;
+    case 'linea-ml': {
+      const i = state.carrito.find((x) => x.key === el.dataset.key);
+      const p = i && state.catalogo.find((x) => x.id === i.id);
+      if (!i || !p) return;
+      i.ml = Number(el.dataset.ml);
+      i.precio = precioEn(p, i.ml, state.tabla);
+      normalizarCarrito();
+      modalCobro();
+      renderCartbar();
+      break;
+    }
+    case 'relleno': {
+      const i = state.carrito.find((x) => x.key === el.dataset.key);
+      if (!i) return;
+      i.rellenado = !i.rellenado;
+      normalizarCarrito();
+      vibrar(8);
+      modalCobro();
+      renderCartbar();
+      break;
+    }
     case 'mas':
       cambiarCantidad(el.dataset.key, 1);
       break;
@@ -744,7 +836,7 @@ async function onClick(e) {
       const nombre = $('#libre-nombre').value.trim() || 'Artículo libre';
       const precio = num($('#libre-precio').value);
       if (!precio) return toast('Escribe el precio', 'err');
-      state.carrito.push({ key: `libre-${Date.now()}`, id: '', nombre, precio, cantidad: 1, imagen: '' });
+      state.carrito.push({ key: `libre-${Date.now()}`, id: '', nombre, ml: null, rellenado: false, precio, cantidad: 1, imagen: '' });
       modalCobro();
       renderCartbar();
       break;

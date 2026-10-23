@@ -9,6 +9,7 @@
  *        Ejecutar como: Yo   ·   Quién tiene acceso: Cualquier persona
  *      Copia la URL que termina en /exec y pégala en la app (Ajustes).
  *
+ * Al actualizar desde una versión anterior, vuelve a ejecutar `configurar` (agrega lo nuevo sin borrar nada).
  * Si después editas este código: Implementar → Gestionar implementaciones → ✏️ → Versión: Nueva.
  */
 
@@ -27,9 +28,18 @@ const HOJAS = {
   detalle: {
     nombre: 'Detalle',
     columnas: ['Folio', 'Fecha', 'Vendedor', 'Punto de venta', 'ID producto', 'Producto', 'Cantidad', 'Precio unitario',
-      'Importe', 'Estado'],
+      'Importe', 'Estado', 'Presentación (ml)', 'Envase rellenado', 'Desc. rellenado'],
   },
 };
+
+// Precio por presentación según el precio de 35 ml (columnas $160, $180…) y descuento por envase rellenado.
+const PRESENTACIONES = [
+  ['Presentación (ml)', 'Descuento rellenado', '$160', '$180'],
+  [16, 15, 90, 100],
+  [25, 20, 120, 135],
+  [35, 20, 160, 180],
+  [60, 20, 250, 280],
+];
 
 /* ---------- Instalación ---------- */
 
@@ -41,6 +51,15 @@ function configurar() {
   ventas.getRange('H:M').setNumberFormat('$#,##0.00');
   hoja_('detalle').getRange('H:I').setNumberFormat('$#,##0.00');
   hoja_('catalogo').getRange('E:E').setNumberFormat('$#,##0.00');
+
+  if (!ss.getSheetByName('Presentaciones')) {
+    const pr = ss.insertSheet('Presentaciones');
+    pr.getRange(1, 1, PRESENTACIONES.length, PRESENTACIONES[0].length).setValues(PRESENTACIONES);
+    pr.getRange(1, 1, 1, PRESENTACIONES[0].length).setFontWeight('bold').setBackground('#1a1515').setFontColor('#d9b46a');
+    pr.setFrozenRows(1);
+    pr.getRange(2, 2, PRESENTACIONES.length - 1, PRESENTACIONES[0].length - 1).setNumberFormat('$#,##0');
+    pr.getRange('A7').setValue('Para otro precio de 35 ml agrega una columna (ej. $200). Si un precio no está, la app lo calcula en proporción.');
+  }
 
   let resumen = ss.getSheetByName('Resumen');
   if (!resumen) {
@@ -67,8 +86,10 @@ function hoja_(clave) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   let sh = ss.getSheetByName(def.nombre);
   if (!sh) sh = ss.insertSheet(def.nombre);
-  if (sh.getLastRow() === 0) {
-    sh.getRange(1, 1, 1, def.columnas.length).setValues([def.columnas])
+  const actuales = sh.getLastRow() === 0 ? 0 : sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0].filter(String).length;
+  if (actuales < def.columnas.length) {
+    // Hoja nueva o de una versión anterior: agrega los encabezados que falten al final.
+    sh.getRange(1, actuales + 1, 1, def.columnas.length - actuales).setValues([def.columnas.slice(actuales)])
       .setFontWeight('bold').setBackground('#1a1515').setFontColor('#d9b46a');
     sh.setFrozenRows(1);
   }
@@ -79,7 +100,7 @@ function hoja_(clave) {
 
 // El catálogo es público (lo usa también el catálogo para clientes); el PIN protege solo las escrituras.
 function doGet() {
-  return json_({ ok: true, productos: leerCatalogo_() });
+  return json_({ ok: true, productos: leerCatalogo_(), presentaciones: leerPresentaciones_() });
 }
 
 function doPost(e) {
@@ -130,6 +151,21 @@ function leerCatalogo_() {
   }));
 }
 
+function leerPresentaciones_() {
+  const sh = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Presentaciones');
+  if (!sh || sh.getLastRow() < 2) return null;
+  const datos = sh.getRange(1, 1, sh.getLastRow(), sh.getLastColumn()).getValues();
+  const niveles = datos[0].slice(2).map((h) => Number(String(h).replace(/[^\d.]/g, '')));
+  const filas = datos.slice(1).filter((f) => Number(f[0]) > 0).map((f) => {
+    const precios = {};
+    niveles.forEach((n, k) => {
+      if (n && f[k + 2] !== '') precios[n] = Number(f[k + 2]);
+    });
+    return { ml: Number(f[0]), relleno: Number(f[1]) || 0, precios: precios };
+  });
+  return filas.length ? { filas: filas } : null;
+}
+
 function esSi_(v) {
   return v === true || /^(s[ií]|true|1|x)$/i.test(String(v).trim());
 }
@@ -167,7 +203,8 @@ function guardarVentas_(ventas) {
       v.recibido === null || v.recibido === undefined ? '' : v.recibido,
       v.cambio === null || v.cambio === undefined ? '' : v.cambio, v.notas || '', 'Pagada', v.dispositivo || '', ahora]);
     items.forEach((i) => {
-      filasD.push([v.folio, v.fecha, v.vendedor, v.punto, i.id || '', i.nombre, i.cantidad, i.precio, i.cantidad * i.precio, 'Pagada']);
+      filasD.push([v.folio, v.fecha, v.vendedor, v.punto, i.id || '', i.nombre, i.cantidad, i.precio, i.cantidad * i.precio, 'Pagada',
+        i.ml || '', i.rellenado ? 'Sí' : 'No', (i.descRelleno || 0) * i.cantidad]);
       if (i.id) vendidas[i.id] = (vendidas[i.id] || 0) + i.cantidad;
     });
   });
@@ -193,10 +230,11 @@ function cancelarVenta_(folio) {
   const n = shD.getLastRow() - 1;
   const devueltas = {};
   if (n > 0) {
+    const colEstadoD = HOJAS.detalle.columnas.indexOf('Estado') + 1;
     const filas = shD.getRange(2, 1, n, HOJAS.detalle.columnas.length).getValues();
     filas.forEach((f, k) => {
       if (f[0] !== folio) return;
-      shD.getRange(k + 2, HOJAS.detalle.columnas.length).setValue('Cancelada');
+      shD.getRange(k + 2, colEstadoD).setValue('Cancelada');
       if (f[4]) devueltas[f[4]] = (devueltas[f[4]] || 0) + Number(f[6]);
     });
   }

@@ -1,9 +1,11 @@
 // Estado local (localStorage) + comunicación con Google Sheets vía Apps Script.
 import catalogoBase from './catalog.json';
+import { PRESENTACIONES_BASE } from './presentaciones.js';
 
 const K = {
   config: 'fs.config',
   catalogo: 'fs.catalogo',
+  presentaciones: 'fs.presentaciones',
   ventas: 'fs.ventas',
   seq: 'fs.seq',
 };
@@ -60,6 +62,8 @@ export function getCatalogo() {
 
 export const catalogoInicial = () => catalogoBase;
 
+export const getPresentaciones = () => leer(K.presentaciones, null) || PRESENTACIONES_BASE;
+
 /* ---------- Ventas (historial local + cola de envío) ---------- */
 
 export const getVentas = () => leer(K.ventas, []);
@@ -91,7 +95,15 @@ export function registrarVenta({ items, descuento, metodo, recibido, notas }) {
     ts: d.getTime(),
     vendedor: config.vendedor,
     punto: config.punto,
-    items: items.map(({ id, nombre, precio, cantidad }) => ({ id, nombre, precio, cantidad })),
+    items: items.map(({ id, nombre, precio, cantidad, ml = null, rellenado = false, descRelleno = 0 }) => ({
+      id,
+      nombre,
+      precio,
+      cantidad,
+      ml,
+      rellenado,
+      descRelleno,
+    })),
     subtotal,
     descuento,
     total,
@@ -137,6 +149,7 @@ export async function descargarCatalogo() {
   const data = await (await fetch(url)).json();
   if (!data.ok) throw new Error(data.error || 'Error en Google Sheets');
   if (data.productos.length) guardar(K.catalogo, data.productos);
+  if (data.presentaciones && data.presentaciones.filas.length) guardar(K.presentaciones, data.presentaciones);
   return data.productos;
 }
 

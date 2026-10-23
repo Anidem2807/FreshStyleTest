@@ -3,10 +3,12 @@ import './styles.css';
 import './catalogo.css';
 import catalogoBase from './catalog.json';
 import { VENDEDORES, REDES, FAMILIAS, esc, money, norm, imgSrc, agotado } from './marca.js';
+import { PRESENTACIONES_BASE, ML_BASE, tamanos, precioEn } from './presentaciones.js';
 
 const $ = (s) => document.querySelector(s);
 const CACHE = 'fs.catalogo.clientes';
 const PEDIDO = 'fs.pedido';
+const TABLA = 'fs.presentaciones.clientes';
 
 const leer = (k, def) => {
   try {
@@ -32,21 +34,26 @@ const state = {
   filtro: 'Todos',
   genero: '',
   q: '',
-  pedido: leer(PEDIDO, {}), // { id: cantidad }
+  tabla: leer(TABLA, null) || PRESENTACIONES_BASE,
+  pedido: leer(PEDIDO, {}), // { 'id|ml': cantidad }
 };
 
 const visibles = () => state.productos.filter((p) => p.activo !== false);
 const porId = (id) => state.productos.find((p) => p.id === id);
+const desde = (p) => Math.min(...tamanos(state.tabla).map((ml) => precioEn(p, ml, state.tabla)));
+const enPedido = (id) =>
+  Object.entries(state.pedido).reduce((s, [k, n]) => s + (k.split('|')[0] === id ? n : 0), 0);
 
 /* ---------- Estructura ---------- */
 
 function montar() {
-  const desde = Math.min(...visibles().map((p) => p.precio).filter(Boolean));
+  const minimo = Math.min(...visibles().map(desde).filter(Boolean));
   $('#app').innerHTML = `
     <header class="hero">
       <img class="hero-logo" src="brand-header.jpg" alt="FreshStyle Perfumería" />
       <p class="hero-line">Fragancias inspiradas en las grandes casas</p>
-      <p class="hero-sub">Elige tus favoritos y pídelos por WhatsApp · desde <b>${money(desde)}</b></p>
+      <p class="hero-sub">Elige tus favoritos y pídelos por WhatsApp · desde <b>${money(minimo)}</b></p>
+      <p class="hero-pres">${tamanos(state.tabla).map((ml) => `${ml} ml`).join(' · ')}</p>
     </header>
 
     <div class="sticky">
@@ -118,7 +125,7 @@ function renderGrid() {
     ? lista
         .map((p) => {
           const out = agotado(p);
-          const n = state.pedido[p.id] || 0;
+          const n = enPedido(p.id);
           return `
         <article class="card ${out ? 'agotado' : ''}" data-ver="${esc(p.id)}">
           <div class="ph"><img loading="lazy" src="${esc(imgSrc(p))}" alt="${esc(p.nombre)}" />
@@ -129,11 +136,11 @@ function renderGrid() {
             <span class="g">${esc(p.genero)} · ${esc((p.familias || [])[0] || '')}</span>
             <h3>${esc(p.nombre)}</h3>
             <div class="row">
-              <b class="price">${money(p.precio)}</b>
+              <b class="price"><small>desde</small> ${money(desde(p))}</b>
               ${
                 out
                   ? ''
-                  : `<button class="add ${n ? 'on' : ''}" data-add="${esc(p.id)}" aria-label="Agregar ${esc(p.nombre)} al pedido">${n ? `${ICON_CHECK}<span>${n}</span>` : ICON_PLUS}</button>`
+                  : `<button class="add ${n ? 'on' : ''}" data-ver="${esc(p.id)}" aria-label="Elegir presentación de ${esc(p.nombre)}">${n ? `${ICON_CHECK}<span>${n}</span>` : ICON_PLUS}</button>`
               }
             </div>
           </div>
@@ -147,13 +154,17 @@ function renderGrid() {
 
 const lineas = () =>
   Object.entries(state.pedido)
-    .map(([id, cantidad]) => ({ p: porId(id), cantidad }))
+    .map(([key, cantidad]) => {
+      const [id, ml = ML_BASE] = key.split('|');
+      const p = porId(id);
+      return { key, p, ml: Number(ml), cantidad, precio: p ? precioEn(p, Number(ml), state.tabla) : 0 };
+    })
     .filter((l) => l.p && l.cantidad > 0);
 
-function cambiar(id, d) {
-  const n = Math.max(0, (state.pedido[id] || 0) + d);
-  if (n) state.pedido[id] = n;
-  else delete state.pedido[id];
+function cambiar(key, d) {
+  const n = Math.max(0, (state.pedido[key] || 0) + d);
+  if (n) state.pedido[key] = n;
+  else delete state.pedido[key];
   guardar(PEDIDO, state.pedido);
   renderGrid();
   renderBarra(d > 0);
@@ -168,7 +179,7 @@ function renderBarra(bump = false) {
     bar.innerHTML = '';
     return;
   }
-  const total = ls.reduce((s, l) => s + l.cantidad * l.p.precio, 0);
+  const total = ls.reduce((s, l) => s + l.cantidad * l.precio, 0);
   bar.className = `cartbar tienda-bar ${bump ? 'bump' : ''}`;
   bar.innerHTML = `
     <button class="cart-sum" data-pedido><span class="badge">${piezas}</span>Mi pedido · <b>${money(total)}</b></button>
@@ -178,11 +189,11 @@ function renderBarra(bump = false) {
 
 function textoPedido(vendedor) {
   const ls = lineas();
-  const total = ls.reduce((s, l) => s + l.cantidad * l.p.precio, 0);
+  const total = ls.reduce((s, l) => s + l.cantidad * l.precio, 0);
   return [
     `Hola ${vendedor.nombre} 👋 Quisiera pedir del catálogo FreshStyle:`,
     '',
-    ...ls.map((l) => `• ${l.cantidad} × ${l.p.nombre} — ${money(l.cantidad * l.p.precio)}`),
+    ...ls.map((l) => `• ${l.cantidad} × ${l.p.nombre} ${l.ml} ml — ${money(l.cantidad * l.precio)}`),
     '',
     `Total: ${money(total)}`,
   ].join('\n');
@@ -203,7 +214,6 @@ function modalProducto(id) {
   const p = porId(id);
   if (!p) return;
   const out = agotado(p);
-  const n = state.pedido[p.id] || 0;
   abrir(
     `
     <button class="close" data-cerrar aria-label="Cerrar">${ICON_X}</button>
@@ -212,15 +222,19 @@ function modalProducto(id) {
       <span class="g">${esc(p.genero)} · ${esc((p.familias || []).join(' · '))}</span>
       <h2>${esc(p.nombre)}</h2>
       <p>${esc(p.descripcion)}</p>
-      <div class="det-foot">
-        <b class="price big">${money(p.precio)}</b>
-        ${
-          out
-            ? '<span class="st err">Agotado por ahora</span>'
-            : `<button class="btn primary" data-add-cerrar="${esc(p.id)}">${n ? `Agregar otro (${n})` : 'Agregar al pedido'}</button>`
-        }
-      </div>
-      <a class="btn ghost" href="${waLink(VENDEDORES[0].whatsapp, `Hola, me interesa el perfume ${p.nombre} (${money(p.precio)}). ¿Está disponible?`)}" target="_blank" rel="noopener">${ICON_WA} Preguntar por este perfume</a>
+      ${
+        out
+          ? '<span class="st err">Agotado por ahora</span>'
+          : `<div class="lbl">Elige tu presentación</div>
+      <div class="pres-grid">${tamanos(state.tabla)
+        .map((ml) => {
+          const n = state.pedido[`${p.id}|${ml}`] || 0;
+          return `<button class="pres-btn ${n ? 'on' : ''}" data-add-cerrar="${esc(p.id)}|${ml}">
+            <span>${ml} ml${n ? ` · ${n} en tu pedido` : ''}</span><b>${money(precioEn(p, ml, state.tabla))}</b></button>`;
+        })
+        .join('')}</div>`
+      }
+      <a class="btn ghost" href="${waLink(VENDEDORES[0].whatsapp, `Hola, me interesa el perfume ${p.nombre}. ¿Está disponible?`)}" target="_blank" rel="noopener">${ICON_WA} Preguntar por este perfume</a>
     </div>`,
     'detalle',
   );
@@ -229,7 +243,7 @@ function modalProducto(id) {
 function modalPedido() {
   const ls = lineas();
   if (!ls.length) return cerrar();
-  const total = ls.reduce((s, l) => s + l.cantidad * l.p.precio, 0);
+  const total = ls.reduce((s, l) => s + l.cantidad * l.precio, 0);
   abrir(
     `
     <div class="sheet-head"><h2>Mi pedido</h2><button class="close" data-cerrar aria-label="Cerrar">${ICON_X}</button></div>
@@ -239,11 +253,11 @@ function modalPedido() {
           (l) => `
         <li>
           <img src="${esc(imgSrc(l.p))}" alt="" />
-          <div class="ln"><span>${esc(l.p.nombre)}</span><b class="price">${money(l.p.precio)}</b></div>
+          <div class="ln"><span>${esc(l.p.nombre)}</span><small class="muted">${l.ml} ml</small><b class="price">${money(l.precio)}</b></div>
           <div class="stepper">
-            <button data-menos="${esc(l.p.id)}" aria-label="Quitar uno">${ICON_MINUS}</button>
+            <button data-menos="${esc(l.key)}" aria-label="Quitar uno">${ICON_MINUS}</button>
             <b>${l.cantidad}</b>
-            <button data-mas="${esc(l.p.id)}" aria-label="Agregar uno">${ICON_PLUS}</button>
+            <button data-mas="${esc(l.key)}" aria-label="Agregar uno">${ICON_PLUS}</button>
           </div>
         </li>`,
         )
@@ -275,14 +289,11 @@ function toast(msg) {
 document.addEventListener('click', (e) => {
   const t = e.target;
   const el = (sel) => t.closest(sel);
-  if (el('[data-add]')) {
-    const id = el('[data-add]').dataset.add;
-    cambiar(id, 1);
-    toast(`${porId(id).nombre} agregado ✓`);
-  } else if (el('[data-add-cerrar]')) {
-    cambiar(el('[data-add-cerrar]').dataset.addCerrar, 1);
+  if (el('[data-add-cerrar]')) {
+    const key = el('[data-add-cerrar]').dataset.addCerrar;
+    cambiar(key, 1);
     cerrar();
-    toast('Agregado a tu pedido ✓');
+    toast(`${porId(key.split('|')[0]).nombre} ${key.split('|')[1]} ml agregado ✓`);
   } else if (el('[data-ver]')) modalProducto(el('[data-ver]').dataset.ver);
   else if (el('[data-pedido]')) modalPedido();
   else if (el('[data-mas]')) cambiar(el('[data-mas]').dataset.mas, 1), modalPedido();
@@ -314,6 +325,10 @@ async function actualizarDesdeHoja() {
   if (!apiUrl) return;
   try {
     const data = await (await fetch(`${apiUrl}?t=${Date.now()}`)).json();
+    if (data.ok && data.presentaciones && data.presentaciones.filas.length) {
+      state.tabla = data.presentaciones;
+      guardar(TABLA, data.presentaciones);
+    }
     if (data.ok && data.productos.length) {
       state.productos = data.productos;
       guardar(CACHE, data.productos);

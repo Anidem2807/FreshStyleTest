@@ -10,6 +10,22 @@ Punto de venta para celular de **FreshStyle Perfumería**, para vender en sucurs
 - Se instala en la pantalla de inicio del celular como una app (PWA).
 - **Base para inventario:** si escribes un número en la columna `Stock` de la hoja, ese producto se descuenta solo con cada venta.
 
+## Presentaciones y envase rellenado
+
+Se vende en **16, 25, 35 y 60 ml**. El precio del catálogo es el de **35 ml** y los demás salen de la pestaña **Presentaciones** de la hoja:
+
+| Presentación | Rellenado | Perfumes de $160 | Perfumes de $180 |
+|---|---|---|---|
+| 16 ml | −$15 | $90 | $100 |
+| 25 ml | −$20 | $120 | $135 |
+| 35 ml | −$20 | $160 | $180 |
+| 60 ml | −$20 | $250 | $280 |
+
+- **Al vender:** elige la presentación arriba del catálogo y todos los precios cambian. En el cobro, cada perfume se puede cambiar de tamaño y marcar como **Envase rellenado**, que aplica el descuento de ese tamaño.
+- **En la hoja:** la pestaña *Detalle* guarda la presentación, si fue rellenado y el descuento aplicado.
+- **Si cambian los precios:** edita la pestaña *Presentaciones*. Para otro nivel de precio agrega una columna (por ejemplo `$200`). Si un perfume tiene un precio que no está en la tabla, la app calcula sus otras presentaciones en proporción, redondeado a $5.
+- **Catálogo de clientes:** muestra "desde $90" en cada perfume y el cliente elige la presentación al agregarlo a su pedido.
+
 ## 1. Conectar Google Sheets (una sola vez, ~5 min)
 
 1. Abre tu hoja → **Extensiones → Apps Script**.
@@ -45,7 +61,7 @@ La app lee el catálogo de la hoja cada vez que se abre. Para que tome cambios a
 - Los números de WhatsApp y las redes están en `src/marca.js`.
 - Para que el catálogo lea la hoja, define la variable `APPS_SCRIPT_URL` en GitHub (ver abajo), o compártelo desde **Ajustes**: ese enlace y el QR ya llevan la conexión.
 
-> Si actualizas `Code.gs` desde una versión anterior, crea una **nueva versión** de la implementación para que el catálogo pueda leerse sin PIN.
+> Si actualizas `Code.gs` desde una versión anterior: pega el código nuevo, ejecuta otra vez **`configurar`** (agrega la pestaña *Presentaciones* y las columnas nuevas sin borrar nada) y crea una **nueva versión** de la implementación.
 
 ## 2. Compartir con tus vendedores
 
