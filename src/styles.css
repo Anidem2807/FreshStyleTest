@@ -325,6 +325,10 @@ main { padding: 12px 12px calc(var(--tabs-h) + var(--safe-b) + 90px); max-width:
 .card-sec h3 { font-family: Cinzel, Georgia, serif; color: var(--gold); font-size: 16px; }
 .card-sec p { margin: 0; }
 
+/* QR del catálogo: fondo claro para que cualquier cámara lo lea. */
+.qr { align-self: center; width: min(220px, 70vw); padding: 10px; border-radius: 14px; background: #fff; }
+.qr svg { width: 100%; height: auto; display: block; }
+
 /* ---------- Toast ---------- */
 .toast {
   position: fixed; left: 50%; top: calc(env(safe-area-inset-top, 0px) + 70px); z-index: 80;

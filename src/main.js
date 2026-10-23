@@ -13,24 +13,15 @@ import {
   sincronizar,
   fechaLocal,
 } from './data.js';
+import { esc, money, norm, imgSrc, agotado as estaAgotado } from './marca.js';
+import qrcode from 'qrcode-generator';
 
 /* ---------- Utilidades ---------- */
 
 const $ = (s, el = document) => el.querySelector(s);
-const esc = (s) =>
-  String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
-const fmt = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', minimumFractionDigits: 0, maximumFractionDigits: 2 });
-const money = (n) => fmt.format(n || 0);
 const num = (v) => {
   const n = parseFloat(String(v).replace(/[^\d.]/g, ''));
   return Number.isFinite(n) ? n : 0;
-};
-const norm = (s) => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
-// Acepta rutas del catálogo integrado, URLs de imagen o enlaces para compartir de Google Drive.
-const imgSrc = (p) => {
-  if (!p.imagen) return 'icon-192.png';
-  const drive = p.imagen.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?.*id=)([\w-]+)/);
-  return drive ? `https://lh3.googleusercontent.com/d/${drive[1]}=w600` : p.imagen;
 };
 const vibrar = (ms = 12) => navigator.vibrate && navigator.vibrate(ms);
 
@@ -165,7 +156,7 @@ function renderGrid() {
   $('#grid').innerHTML = lista.length
     ? lista
         .map((p) => {
-          const agotado = p.stock !== null && p.stock !== undefined && p.stock <= 0;
+          const agotado = estaAgotado(p);
           const stock =
             p.stock === null || p.stock === undefined ? '' : `<span class="stock ${agotado ? 'out' : ''}">${agotado ? 'Agotado' : `Quedan ${p.stock}`}</span>`;
           return `
@@ -547,6 +538,21 @@ function modalTicket(folio) {
 
 /* ---------- Ajustes ---------- */
 
+// Si la app no se publicó con APPS_SCRIPT_URL, el enlace lleva el id del script para que el catálogo lea la hoja.
+const urlCatalogo = () => {
+  const url = new URL('catalogo.html', location.href);
+  const id = getConfig().apiUrl.match(/\/macros\/s\/([\w-]+)\/exec/);
+  if (id && getConfig().apiUrl !== __APPS_SCRIPT_URL__) url.searchParams.set('s', id[1]);
+  return url.href;
+};
+
+function qrCatalogo() {
+  const qr = qrcode(0, 'M');
+  qr.addData(urlCatalogo());
+  qr.make();
+  return qr.createSvgTag({ cellSize: 6, margin: 2, scalable: true });
+}
+
 function vistaAjustes() {
   const c = getConfig();
   const otroPunto = !PUNTOS.includes(c.punto);
@@ -575,6 +581,16 @@ function vistaAjustes() {
         state.fuenteCatalogo === 'hoja' ? 'Google Sheet' : 'integrado en la app'
       }</p>
       <button class="btn ghost small" data-action="cargar-catalogo">Subir catálogo inicial a la hoja</button>
+    </section>
+
+    <section class="card-sec">
+      <h3>Catálogo para clientes</h3>
+      <p class="muted small">Que tus clientes escaneen este código para ver los perfumes y pedir por WhatsApp. Precios y existencias salen de la hoja.</p>
+      <div class="qr">${qrCatalogo()}</div>
+      <div class="btn-row">
+        <a class="btn" href="catalogo.html" target="_blank" rel="noopener">Abrir catálogo</a>
+        <button class="btn ghost" data-action="compartir-catalogo">Compartir</button>
+      </div>
     </section>
 
     <section class="card-sec">
@@ -786,6 +802,15 @@ async function onClick(e) {
       const cfg = btoa(unescape(encodeURIComponent(JSON.stringify({ apiUrl: c.apiUrl, pin: c.pin, sheetUrl: c.sheetUrl }))));
       const url = `${location.origin}${location.pathname}#cfg=${cfg}`;
       if (navigator.share) navigator.share({ title: 'FreshStyle POS', text: 'Abre el punto de venta FreshStyle:', url }).catch(() => {});
+      else {
+        await navigator.clipboard?.writeText(url).catch(() => {});
+        toast('Enlace copiado ✓');
+      }
+      break;
+    }
+    case 'compartir-catalogo': {
+      const url = urlCatalogo();
+      if (navigator.share) navigator.share({ title: 'FreshStyle Perfumería', text: 'Mira nuestro catálogo de perfumes:', url }).catch(() => {});
       else {
         await navigator.clipboard?.writeText(url).catch(() => {});
         toast('Enlace copiado ✓');

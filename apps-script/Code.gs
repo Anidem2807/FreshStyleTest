@@ -12,7 +12,7 @@
  * Si después editas este código: Implementar → Gestionar implementaciones → ✏️ → Versión: Nueva.
  */
 
-const PIN = ''; // Ej. '2468'. Vacío = sin PIN.
+const PIN = ''; // Ej. '2468'. Protege registrar y cancelar ventas. Vacío = sin PIN.
 
 const HOJAS = {
   catalogo: {
@@ -77,9 +77,8 @@ function hoja_(clave) {
 
 /* ---------- API ---------- */
 
-function doGet(e) {
-  const p = (e && e.parameter) || {};
-  if (PIN && p.pin !== PIN) return json_({ ok: false, error: 'PIN incorrecto' });
+// El catálogo es público (lo usa también el catálogo para clientes); el PIN protege solo las escrituras.
+function doGet() {
   return json_({ ok: true, productos: leerCatalogo_() });
 }
 

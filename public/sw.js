@@ -1,6 +1,6 @@
 // Service worker: deja la app funcionando sin señal (tianguis).
 // Archivos de la app y fotos: primero caché. Google Apps Script: nunca se cachea.
-const CACHE = 'freshstyle-v1';
+const CACHE = 'freshstyle-v2';
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(['./', './index.html', './manifest.webmanifest'])).then(() => self.skipWaiting()));
@@ -24,10 +24,10 @@ self.addEventListener('fetch', (e) => {
       fetch(req)
         .then((res) => {
           const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put('./index.html', copy));
+          caches.open(CACHE).then((c) => c.put(req, copy));
           return res;
         })
-        .catch(() => caches.match('./index.html')),
+        .catch(() => caches.match(req, { ignoreSearch: true }).then((hit) => hit || caches.match('./index.html'))),
     );
     return;
   }

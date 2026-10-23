@@ -6,6 +6,11 @@ export default defineConfig(({ mode }) => {
   const env = { ...loadEnv(mode, process.cwd(), ''), ...process.env };
   return {
     base: './',
+    build: {
+      rollupOptions: {
+        input: { pos: 'index.html', catalogo: 'catalogo.html' },
+      },
+    },
     define: {
       __SHEET_URL__: JSON.stringify(env.Sheet || env.SHEET_URL || ''),
       __APPS_SCRIPT_URL__: JSON.stringify(env.APPS_SCRIPT_URL || ''),

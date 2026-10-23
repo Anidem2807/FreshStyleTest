@@ -36,6 +36,17 @@ En la app: **Ajustes →** pega la URL (y el PIN, si pusiste uno) **→ "Subir c
 
 La app lee el catálogo de la hoja cada vez que se abre. Para que tome cambios al momento, usa **Ajustes → Probar y actualizar catálogo**.
 
+## Catálogo para clientes
+
+`catalogo.html` es la vitrina pública: tus clientes buscan por nombre o aroma, filtran por hombre/mujer y familia, ven la descripción y arman un pedido que se envía por WhatsApp a Eduardo o a Aarón.
+
+- Lo encuentras en la app de ventas, en **Ajustes → Catálogo para clientes**, con un **código QR** para imprimir o mostrar en el puesto, y botones para abrirlo o compartirlo.
+- Toma precios, perfumes activos y existencias de la hoja `Catalogo`: lo que ocultes (Activo = No) desaparece y lo que tenga Stock 0 sale como "Agotado".
+- Los números de WhatsApp y las redes están en `src/marca.js`.
+- Para que el catálogo lea la hoja, define la variable `APPS_SCRIPT_URL` en GitHub (ver abajo), o compártelo desde **Ajustes**: ese enlace y el QR ya llevan la conexión.
+
+> Si actualizas `Code.gs` desde una versión anterior, crea una **nueva versión** de la implementación para que el catálogo pueda leerse sin PIN.
+
 ## 2. Compartir con tus vendedores
 
 En **Ajustes → Compartir configuración** se genera un enlace que abre la app ya conectada a la hoja. Mándalo por WhatsApp. Cada quien escribe su nombre la primera vez y luego, en el celular, elige *Agregar a pantalla de inicio*.

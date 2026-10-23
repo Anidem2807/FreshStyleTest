@@ -1,0 +1,77 @@
+/* Catálogo para clientes. Reutiliza tokens y componentes de styles.css. */
+
+.tienda main.vitrina { padding: 4px 12px 120px; }
+
+.hero {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;
+  padding: calc(env(safe-area-inset-top, 0px) + 28px) 16px 22px;
+  background:
+    radial-gradient(80% 90% at 50% 0%, rgba(226, 88, 43, 0.28), transparent 70%),
+    linear-gradient(180deg, #120c0b, var(--bg));
+  border-bottom: 1px solid rgba(217, 180, 106, 0.16);
+}
+.hero-logo { width: min(340px, 82vw); height: auto; border-radius: 12px; mix-blend-mode: lighten; }
+.hero-line {
+  margin: 8px 0 0; font-family: Cinzel, Georgia, serif; font-weight: 700; font-size: 19px; line-height: 1.25;
+  color: var(--gold-hi); text-wrap: balance; letter-spacing: 0.02em;
+}
+.hero-sub { margin: 0; color: var(--champagne); font-size: 14px; }
+.hero-sub b { color: var(--gold-hi); }
+
+.sticky {
+  position: sticky; top: 0; z-index: 20;
+  padding: calc(env(safe-area-inset-top, 0px) + 10px) 12px 4px;
+  background: linear-gradient(180deg, rgba(14, 11, 11, 0.98) 80%, rgba(14, 11, 11, 0.85));
+  backdrop-filter: blur(10px);
+  max-width: 900px; margin: 0 auto;
+}
+.gen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 10px; }
+.gen button {
+  min-height: 40px; border-radius: 12px; font-weight: 700; font-size: 14px; color: var(--muted);
+  border: 1px solid var(--line); background: var(--card);
+}
+.gen button.on { color: var(--gold-hi); border-color: rgba(217, 180, 106, 0.55); background: var(--card-2); }
+.tienda .chips { padding-top: 10px; }
+
+.conteo { margin: 10px 2px 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.tienda .card { cursor: pointer; }
+.tienda .ph .top { font-size: 10px; }
+.ph .sold {
+  position: absolute; inset: auto 8px 8px auto; padding: 3px 8px; border-radius: 6px;
+  font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em;
+  background: rgba(14, 11, 11, 0.85); color: var(--err);
+}
+
+.add {
+  flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 2px;
+  min-width: 38px; height: 38px; padding: 0 8px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--ember-hi), var(--ember)); color: #fff;
+  box-shadow: 0 4px 12px rgba(226, 88, 43, 0.35);
+}
+.add svg { width: 20px; height: 20px; stroke-width: 2.2; }
+.add.on { background: var(--gold); color: #21170a; box-shadow: none; font-weight: 900; }
+.add.on svg { width: 16px; height: 16px; }
+
+.tienda-bar { bottom: calc(var(--safe-b) + 12px); }
+
+.det > .btn.ghost { margin-top: 4px; }
+.envio .lbl { margin-top: 0; }
+.envio-btns { display: flex; gap: 10px; }
+.envio-btns .btn { flex: 1; min-height: 52px; }
+
+.pie {
+  display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center;
+  padding: 28px 16px calc(var(--safe-b) + 110px);
+  border-top: 1px solid rgba(217, 180, 106, 0.16);
+  background: linear-gradient(180deg, transparent, rgba(226, 88, 43, 0.08));
+}
+.pie p { margin: 0; color: var(--champagne); }
+.pie-logo { width: 56px; height: 56px; border-radius: 14px; }
+.pie-contactos { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.pie-redes { display: flex; gap: 18px; }
+.pie-redes a { color: var(--gold); font-weight: 700; text-decoration: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
