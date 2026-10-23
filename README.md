@@ -42,10 +42,10 @@ En **Ajustes → Compartir configuración** se genera un enlace que abre la app 
 
 ## 3. Publicar la app
 
-Es un sitio estático (carpeta `dist/`). Lo más fácil es **GitHub Pages**: el flujo ya está en `.github/workflows/deploy.yml`.
+Es un sitio estático que se compila a la carpeta `dist/`. Se publica en **GitHub Pages** con `.github/workflows/static.yml`, que compila y publica en cada push.
 
-1. Haz merge a `main`.
-2. Ve a **Settings → Pages → Source: GitHub Actions**.
+1. **Settings → Pages → Source: GitHub Actions**.
+2. Haz push (o merge a `main`). La app queda en `https://<usuario>.github.io/FreshStyleTest/`.
 3. (Opcional) En **Settings → Secrets and variables → Actions → Variables**, crea `APPS_SCRIPT_URL` y `Sheet`. Así la app ya sale conectada y nadie tiene que pegar la URL.
 
 GitHub Pages en repos privados requiere un plan de pago. Otra opción gratis es arrastrar la carpeta `dist/` a [Netlify Drop](https://app.netlify.com/drop).
