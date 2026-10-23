@@ -93,6 +93,7 @@ function montar() {
     <div id="cartbar"></div>
     <nav class="tabs" id="tabs"></nav>
     <div id="modal"></div>
+    <div id="dialog"></div>
     <div id="toast" class="toast"></div>`;
   document.addEventListener('click', onClick);
   document.addEventListener('input', onInput);
@@ -403,7 +404,7 @@ function modalExito(v) {
       ${v.cambio !== null ? `<div class="cambio">Cambio <b>${money(v.cambio)}</b></div>` : ''}
       <div id="exito-estado">${estadoVenta(v.folio)}</div>
       <div class="exito-btns">
-        <button class="btn ghost" data-action="ticket-wa" data-folio="${esc(v.folio)}">${ICON.wa} Enviar ticket</button>
+        <a class="btn ghost" href="${linkWhatsApp(v)}" target="_blank" rel="noopener">${ICON.wa} Enviar ticket</a>
         <button class="btn primary" data-action="cerrar">Nueva venta</button>
       </div>
     </div>`,
@@ -429,6 +430,31 @@ function textoTicket(v) {
   ]
     .filter((x) => x !== null)
     .join('\n');
+}
+
+const linkWhatsApp = (v) => `https://wa.me/?text=${encodeURIComponent(textoTicket(v))}`;
+
+// Confirmación dentro de la app (más clara en celular que el diálogo del navegador).
+function pedirConfirmacion(mensaje, si = 'Confirmar', peligro = false) {
+  return new Promise((resolve) => {
+    const d = $('#dialog');
+    d.innerHTML = `
+      <div class="overlay dlg"><div class="dialog" role="alertdialog" aria-modal="true">
+        <p>${esc(mensaje)}</p>
+        <div class="dialog-btns">
+          <button class="btn ghost" id="dlg-no">Regresar</button>
+          <button class="btn ${peligro ? 'danger' : 'primary'}" id="dlg-si">${esc(si)}</button>
+        </div>
+      </div></div>`;
+    const fin = (v) => (e) => {
+      e.stopPropagation();
+      d.innerHTML = '';
+      resolve(v);
+    };
+    $('#dlg-no').onclick = fin(false);
+    $('#dlg-si').onclick = fin(true);
+    $('#dlg-si').focus();
+  });
 }
 
 function modalOnboarding() {
@@ -513,7 +539,7 @@ function modalTicket(folio) {
     <div class="sheet-body"><pre class="ticket">${esc(textoTicket(v))}</pre></div>
     <div class="sheet-foot two">
       ${v.estado !== 'Cancelada' ? `<button class="btn danger" data-action="cancelar-venta" data-folio="${esc(v.folio)}">Cancelar venta</button>` : ''}
-      <button class="btn primary" data-action="ticket-wa" data-folio="${esc(v.folio)}">${ICON.wa} WhatsApp</button>
+      <a class="btn primary" href="${linkWhatsApp(v)}" target="_blank" rel="noopener">${ICON.wa} WhatsApp</a>
     </div>`,
     'cobro',
   );
@@ -650,7 +676,7 @@ async function onClick(e) {
       renderGrid();
       break;
     case 'agregar':
-      if (el.classList.contains('agotado') && !confirm('Este perfume aparece agotado. ¿Venderlo de todos modos?')) return;
+      if (el.classList.contains('agotado') && !(await pedirConfirmacion('Este perfume aparece agotado. ¿Venderlo de todos modos?', 'Vender'))) return;
       agregar(el.dataset.id);
       el.classList.add('flash');
       setTimeout(() => el.classList.remove('flash'), 250);
@@ -671,7 +697,7 @@ async function onClick(e) {
       modalCobro();
       break;
     case 'vaciar':
-      if (confirm('¿Vaciar la venta?')) {
+      if (await pedirConfirmacion('¿Vaciar la venta?', 'Vaciar', true)) {
         state.carrito = [];
         cerrarModal();
         render();
@@ -712,16 +738,11 @@ async function onClick(e) {
       el.disabled = true;
       await confirmarVenta();
       break;
-    case 'ticket-wa': {
-      const v = getVentas().find((x) => x.folio === el.dataset.folio);
-      if (v) window.open(`https://wa.me/?text=${encodeURIComponent(textoTicket(v))}`, '_blank');
-      break;
-    }
     case 'ticket':
       modalTicket(el.dataset.folio);
       break;
     case 'cancelar-venta':
-      if (!confirm('¿Cancelar esta venta? Quedará marcada como “Cancelada” en la hoja.')) return;
+      if (!(await pedirConfirmacion('¿Cancelar esta venta? Quedará marcada como “Cancelada” en la hoja.', 'Cancelar venta', true))) return;
       marcarCancelada(el.dataset.folio);
       cerrarModal();
       render();
@@ -749,7 +770,7 @@ async function onClick(e) {
       break;
     case 'cargar-catalogo':
       guardarAjustes();
-      if (!confirm(`Se cargarán ${catalogoInicial().length} perfumes en la hoja “Catalogo” (solo si está vacía). ¿Continuar?`)) return;
+      if (!(await pedirConfirmacion(`Se cargarán ${catalogoInicial().length} perfumes en la hoja “Catalogo” (solo si está vacía).`, 'Subir catálogo'))) return;
       try {
         el.disabled = true;
         const r = await subirCatalogoInicial();
