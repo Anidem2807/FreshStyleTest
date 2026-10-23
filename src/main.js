@@ -319,7 +319,7 @@ function modalCobro() {
               )
               .join('')}<span>ml</span></div>
             <button class="relleno ${i.rellenado ? 'on' : ''}" data-action="relleno" data-key="${esc(i.key)}" aria-pressed="${i.rellenado}">
-              ${ICON.refill} Envase rellenado <b>−${money(descuentoRelleno(i.ml, state.tabla))}</b>
+              ${ICON.refill} Relleno FreshStyle <b>−${money(descuentoRelleno(i.ml, state.tabla))}</b>
             </button>
           </div>`
               : ''
