@@ -1,0 +1,1980 @@
+[
+ {
+  "id": "1-million",
+  "nombre": "1 Million (Paco Rabanne)",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fragancia vibrante y seductora que mezcla frescura cítrica con un fondo cálido y sensual de ámbar y cuero 🍊🔥🌹✨ Un aroma atrevido, elegante y lleno de carácter que impone presencia 😎💛",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/1-million.webp"
+ },
+ {
+  "id": "1-million-lucky",
+  "nombre": "1 Million Lucky (Paco Rabanne)",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "✨ Fragancia intensa y adictiva que mezcla la dulzura de la ciruela 🍑 y la miel 🍯 con el toque cremoso de la avellana 🌰, envuelta en notas ozónicas 🌊 y cedro 🌲 que le dan frescura y carácter. Un aroma moderno, elegante y con mucha personalidad 🔥",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/1-million-lucky.webp"
+ },
+ {
+  "id": "212-man",
+  "nombre": "212 Man",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Fresco y moderno con notas cítricas de toronja 🍊 y acordes verdes 🌿, mezclado con un toque especiado de jengibre y un fondo amaderado elegante 🌲✨Perfecto para el día a día: limpio, masculino y con estilo 😎💼",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/212-man.webp"
+ },
+ {
+  "id": "212-vip-black",
+  "nombre": "212 VIP Black",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Aroma intenso y moderno con notas dulces, especiadas y amaderadas. Perfecto para la noche y para destacar donde llegues. 🖤🔥",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/212-vip-black.webp"
+ },
+ {
+  "id": "212-vip-men",
+  "nombre": "212 VIP Men",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco",
+   "Nocturno"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco con toque dulce y fiestero 😏 Con notas de lima 🍋, especias y un toque de vodka Moderno, juvenil y muy llamativo 💃 Perfecto para salidas, fiestas y destacar de noche 🌙✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/212-vip-men.webp"
+ },
+ {
+  "id": "360-red",
+  "nombre": "360° Red (Perry Ellis)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco especiado 🍊 con cítricos y canela. Versátil, económico y fácil de usar diario 👌",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/360-red.webp"
+ },
+ {
+  "id": "9pm",
+  "nombre": "9PM",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce con vainilla y canela. Nocturno, juvenil y muy llamativo.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/9pm.webp"
+ },
+ {
+  "id": "acqua-di-gio",
+  "nombre": "Acqua di Giò (Giorgio Armani)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Cítrico marino fresco y ligero 😍Huele a limón, bergamota y brisa de marLimpio, natural y muy fácil de usar 💼Perfecto para calor, diario y hombres que quieren oler fresco sin esfuerzo ✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/acqua-di-gio.webp"
+ },
+ {
+  "id": "acqua-di-gio-profondo",
+  "nombre": "Acqua di Giò Profondo (Giorgio Armani)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Fresco marino intenso con toque elegante 😮‍🔥Huele a agua de mar, cítricos y notas limpiasMasculino, moderno y muy versátil 💼Perfecto para uso diario y siempre oler limpio y atractivo ✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/acqua-di-gio-profondo.webp"
+ },
+ {
+  "id": "allure-homme-sport",
+  "nombre": "Allure Homme Sport (Chanel)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco deportivo 🏃‍♂️ con cítricos 🍊 y notas marinas. Limpio, elegante y muy versátil",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/allure-homme-sport.webp"
+ },
+ {
+  "id": "animal",
+  "nombre": "Animal",
+  "genero": "Hombre",
+  "familias": [
+   "Amaderado"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "🔥 Fragancia vibrante y atrevida que combina la frescura cítrica de la mandarina 🍊 con el toque exótico de la piña 🍍, se intensifica con la pimienta negra 🌶️ y termina con un fondo cálido de ámbar ✨. Potente, juvenil y con mucha personalidad",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/animal.webp"
+ },
+ {
+  "id": "armani-code",
+  "nombre": "Armani Code",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Elegancia y seducción en cada aplicación. Una mezcla intensa de cuero, haba tonka, tabaco y limón que deja una impresión inolvidable. 🖤✨",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/armani-code.webp"
+ },
+ {
+  "id": "asad-bourbon",
+  "nombre": "Asad Bourbon",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "🔥 Un aroma intenso y elegante con vainilla, cacao y ámbar. Dulce, masculino y con mucha presencia, perfecto para destacar en cualquier ocasión.",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/asad-bourbon.webp"
+ },
+ {
+  "id": "bad-boy",
+  "nombre": "Bad Boy",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "🔥 Fragancia intensa y elegante ⚡ Notas de pimienta, cacao y haba tonka 🌙 Ideal para noche y ocasiones especiales",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/bad-boy.webp"
+ },
+ {
+  "id": "bharara-king",
+  "nombre": "Bharara King",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 180,
+  "descripcion": "Aroma dulce, intenso y elegante con fondo de vainilla y ámbar 🍦✨. Proyecta fuerte, dura horas y deja una estela que impone presencia 💯💨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/bharara-king.webp"
+ },
+ {
+  "id": "bleu-de-chanel",
+  "nombre": "Bleu de Chanel",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Uno de los más completos 🔥: fresco, amaderado y elegante. Sirve para TODO (citas, trabajo, eventos).",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/bleu-de-chanel.webp"
+ },
+ {
+  "id": "boss-bottled-citrus",
+  "nombre": "Boss Bottled Citrus",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco, cítrico y energético 😍Con notas de naranja 🍊 y limón que lo hacen vibrante y limpio",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/boss-bottled-citrus.webp"
+ },
+ {
+  "id": "boss-infinite",
+  "nombre": "Boss Infinite",
+  "genero": "Hombre",
+  "familias": [
+   "Amaderado"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "✨ Fragancia fresca y elegante que combina la suavidad de la lavanda 💜 y la manzana 🍏 con el toque cálido del sándalo 🌲 y la canela 🍂, envuelta en notas verdes de olivo 🫒 y romero 🌿 que le dan un carácter moderno y sofisticado 🔥",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/boss-infinite.webp"
+ },
+ {
+  "id": "bvlgari-man-rain-essence",
+  "nombre": "Bvlgari Man Rain Essence",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Acuático elegante 🌧️🌊. Huele a limpio premium, muy usable diario.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/bvlgari-man-rain-essence.webp"
+ },
+ {
+  "id": "carlo-corinto",
+  "nombre": "Carlo Corinto",
+  "genero": "Hombre",
+  "familias": [
+   "Amaderado"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "🌿 Fragancia fresca y ligera que abre con la chispa cítrica del limón 🍋 y la dulzura suave del melón 🍈, se mezcla con notas verdes naturales 🌱 y un toque elegante de rosa 🌹, terminando en un fondo limpio de almizcle ✨. Sutil, clásico y muy versátil",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/carlo-corinto.webp"
+ },
+ {
+  "id": "chrome",
+  "nombre": "Chrome",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco, limpio y relajado 🌊Con notas cítricas y verdes que dan sensación de recién bañado 🧼Ligero, masculino y muy versátil 😎Perfecto para el día, calor y uso diario ☀️✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/chrome.webp"
+ },
+ {
+  "id": "ck-one",
+  "nombre": "CK One (Calvin Klein)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Fresco y ligero 🌿 con cítricos 🍋 y notas verdes. Unisex y perfecto para el día ☀️, ideal para uso diario ✨.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/ck-one.webp"
+ },
+ {
+  "id": "coach-blue",
+  "nombre": "Coach Blue",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco y moderno 🌊 con notas cítricas y ozónicas. Ideal para clima cálido ☀️, limpio y juvenil",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/coach-blue.webp"
+ },
+ {
+  "id": "cr7-fearless",
+  "nombre": "CR7 Fearless",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Moderno y dinámico ⚡ con notas frutales 🍎 y especiadas 🌿. Perfecto para hombres activos y seguros 💪",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/cr7-fearless.webp"
+ },
+ {
+  "id": "creed",
+  "nombre": "Creed",
+  "genero": "Hombre",
+  "familias": [
+   "Amaderado"
+  ],
+  "mas_vendido": false,
+  "precio": 180,
+  "descripcion": "✨ Fragancia poderosa y elegante que mezcla la frescura jugosa de la piña 🍍 y la manzana 🍎 con un fondo ahumado 🔥 y almizclado que le da profundidad y carácter. Un aroma masculino, dominante y lleno de presencia 👑",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/creed.webp"
+ },
+ {
+  "id": "desire-for-a-man",
+  "nombre": "Desire for a Man (Dunhill)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce y atractivo ❤️ con manzana 🍏, vainilla 🍦 y rosa 🌹. Un perfume seductor ideal para citas y ocasiones especiales 🔥✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/desire-for-a-man.webp"
+ },
+ {
+  "id": "dior-homme",
+  "nombre": "Dior Homme",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Aroma elegante, intenso y sofisticado con notas de iris, madera y ámbar 🌲✨. Dulce, profundo y muy masculino, ideal para destacar con clase 💯💨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/dior-homme.webp"
+ },
+ {
+  "id": "dior-sauvage",
+  "nombre": "Dior Sauvage",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Fresco, intenso y magnético. Bergamota vibrante con fondo amaderado que impone presencia. 🔥 Poder y libertad en cada aroma",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/dior-sauvage.webp"
+ },
+ {
+  "id": "drakkar",
+  "nombre": "Drakkar",
+  "genero": "Hombre",
+  "familias": [
+   "Amaderado"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "✨ Clásico masculino con carácter limpio y elegante: abre con limón fresco 🍋, evoluciona a una lavanda aromática 🌿 y termina con un fondo profundo de musgo de roble 🌲 que transmite fuerza y seguridad. Un aroma atemporal y seductor 🖤",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/drakkar.webp"
+ },
+ {
+  "id": "eternity-for-men",
+  "nombre": "Eternity For Men (Calvin Klein)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Clásico y elegante 💼 con lavanda, cítricos 🍋 y fondo amaderado 🌳. Perfecto para uso diario con un toque sofisticado ✨.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/eternity-for-men.webp"
+ },
+ {
+  "id": "fahrenheit",
+  "nombre": "Fahrenheit – Dior",
+  "genero": "Hombre",
+  "familias": [
+   "Amaderado"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Una fragancia intensa y masculina que mezcla la frescura cítrica de la mandarina 🍊 con el toque especiado de la nuez moscada 🌰, envuelta en un fondo profundo de cuero 🧥 y pachulí 🌿. Poderosa, elegante y con carácter único 💥",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/fahrenheit.webp"
+ },
+ {
+  "id": "ferragamo",
+  "nombre": "Ferragamo",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "🍋 Una mezcla sofisticada de bergamota, limón, salvia y almizcle que ofrece un aroma fresco, moderno y elegante. Perfecto para hombres con estilo.",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/ferragamo.webp"
+ },
+ {
+  "id": "gucci-guilty",
+  "nombre": "Gucci Guilty",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Aromático con lavanda y maderas. Clásico moderno, elegante y seguro.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/gucci-guilty.webp"
+ },
+ {
+  "id": "gucci-guilty-black",
+  "nombre": "Gucci Guilty Black",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Verde, limpio y algo floral 🌿. Rico pero más simple, no proyecta tanto",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/gucci-guilty-black.webp"
+ },
+ {
+  "id": "halloween-man",
+  "nombre": "Halloween Man",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Aroma dulce, especiado y seductor con vainilla, canela y ámbar 🍦🌶️✨. Moderno, llamativo y perfecto para destacar de noche 💯💨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/halloween-man.webp"
+ },
+ {
+  "id": "hawas",
+  "nombre": "Hawas",
+  "genero": "Hombre",
+  "familias": [
+   "Amaderado"
+  ],
+  "mas_vendido": false,
+  "precio": 180,
+  "descripcion": "🔥 Fragancia vibrante y adictiva que abre con una mezcla cítrica brillante de bergamota 🍊 y pomelo rosado 🍈, se endulza con un toque jugoso de piña 🍍 y evoluciona hacia un fondo limpio y sensual. Fresco, moderno y con mucha presencia",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/hawas.webp"
+ },
+ {
+  "id": "hawas-tropical",
+  "nombre": "Hawas Tropical",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 180,
+  "descripcion": "Un aroma fresco, tropical y adictivo. La mezcla de coco, agua de coco y menta da una sensación limpia y relajante, mientras el sándalo y haba tonka le dan ese toque dulce y masculino que dura horas. Ideal para días de calor, salidas y uso diario 🌴🥥",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/hawas-tropical.webp"
+ },
+ {
+  "id": "hugo-extreme",
+  "nombre": "Hugo Extreme",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco y energético 🌿 con notas frutales 🍏 y amaderadas 🌳. Perfecto para el día ☀️, brindando un estilo moderno y dinámico",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/hugo-extreme.webp"
+ },
+ {
+  "id": "hugo-urban",
+  "nombre": "Hugo Urban – Hugo Boss",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco, moderno y relajado. La salida de té y notas verdes da una sensación limpia y energética, mientras las notas florales y el sándalo crean un fondo suave y elegante. Un aroma versátil, juvenil y con estilo urbano… perfecto para destacar todos los días sin perder la frescura.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/hugo-urban.webp"
+ },
+ {
+  "id": "imagination",
+  "nombre": "Imagination (Louis Vuitton)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 180,
+  "descripcion": "Fresco cítrico con toque elegante 😮‍🔥 Notas de limón 🍋, té y jengibre que lo hacen limpio y sofisticado",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/imagination.webp"
+ },
+ {
+  "id": "invictus",
+  "nombre": "Invictus",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco",
+   "Nocturno"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco, dulce y muy llamativo 😮‍🔥Con notas marinas 🌊, toronja 🍊 y un toque dulce adictivo",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/invictus.webp"
+ },
+ {
+  "id": "invictus-acqua",
+  "nombre": "Invictus Acqua",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "💙 Frescura acuática al máximo. Sus notas marinas, toronja y maderas ambaradas crean un aroma limpio, elegante y muy refrescante para el día a día.",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/invictus-acqua.webp"
+ },
+ {
+  "id": "invictus-legend",
+  "nombre": "Invictus Legend",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Frescura marina con un toque intenso y elegante. Las notas de agua de mar🌊 , toronja y ámbar crean una fragancia poderosa, moderna y masculina que deja presencia desde el primer spray🌴",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/invictus-legend.webp"
+ },
+ {
+  "id": "invictus-parfum",
+  "nombre": "Invictus Parfum",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco acuático con toque intenso. Energía, limpieza y poder masculino.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/invictus-parfum.webp"
+ },
+ {
+  "id": "invictus-victory-elixir",
+  "nombre": "Invictus Victory Elixir",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Aroma intenso, dulce y especiado con vainilla, tonka e incienso 🍦🌶️✨. Súper potente, oscuro y seductor, hecho para destacar de noche 💯💨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/invictus-victory-elixir.webp"
+ },
+ {
+  "id": "khamrah",
+  "nombre": "Khamrah",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": false,
+  "precio": 180,
+  "descripcion": "Aroma dulce, cálido y especiado con vainilla, canela y ámbar 🍦🌶️✨. Súper adictivo, potente y elegante, perfecto para noches y destacar 💯💨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/khamrah.webp"
+ },
+ {
+  "id": "lacoste-l-12-12-white",
+  "nombre": "Lacoste L.12.12 White",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Limpio y fresco 🤍 con cítricos 🍋 y notas florales suaves 🌼. Ideal para un estilo casual y elegante en el día ☀️.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/lacoste-l-12-12-white.webp"
+ },
+ {
+  "id": "lacoste-red",
+  "nombre": "Lacoste Red",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "🍎 Energía pura en cada aplicación. La dulzura de la manzana se mezcla con notas de pino, pachulí y vetiver para un aroma juvenil, dinámico y deportivo.",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/lacoste-red.webp"
+ },
+ {
+  "id": "le-beau-paradise-garden",
+  "nombre": "Le Beau Paradise Garden (JPG)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Exótico y fresco 🌿 con coco 🥥 y notas verdes. Perfecto para días cálidos ☀️ con un toque tropical y seductor 🌊",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/le-beau-paradise-garden.webp"
+ },
+ {
+  "id": "le-male-elixir",
+  "nombre": "Le Male Elixir",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Aroma dulce, cálido y seductor con vainilla, miel y tabaco 🍦✨. Súper potente, elegante y adictivo, perfecto para noches y llamar la atención 💯💨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/le-male-elixir.webp"
+ },
+ {
+  "id": "legend-blue",
+  "nombre": "Legend Blue (Montblanc)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco, limpio y moderno 💧. Seguro para diario pero no muy llamativo",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/legend-blue.webp"
+ },
+ {
+  "id": "legend-spirit",
+  "nombre": "Legend Spirit (Montblanc)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco y acuático 🌊 con notas cítricas 🍋 y aromáticas 🌿. Perfecto para el día, con un estilo limpio y versátil ✨.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/legend-spirit.webp"
+ },
+ {
+  "id": "light-blue",
+  "nombre": "Light Blue (Hombre)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco cítrico con toque limpio. Ligero, masculino y perfecto para diario.",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/light-blue.webp"
+ },
+ {
+  "id": "luna-rossa-black",
+  "nombre": "Luna Rossa Black",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco elegante con toque dulce 😮‍🔥 Combina notas limpias con vainilla y ámbar Moderno, suave y muy atractivo 😏 Perfecto para la noche o clima fresco 🌙✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/luna-rossa-black.webp"
+ },
+ {
+  "id": "limmensite",
+  "nombre": "L’Immensité – Louis Vuitton",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 180,
+  "descripcion": "Fresco, limpio y elegante con toronja 🍊 y jengibre 🌿 Perfecto para oler sofisticado todos los días 😎✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/limmensite.webp"
+ },
+ {
+  "id": "mandarin",
+  "nombre": "Mandarin (Odyssey Mandarin Sky)",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 180,
+  "descripcion": "Aroma dulce, moderno y llamativo con mandarina, caramelo y ámbar 🍬✨. Adictivo, cálido y con buena duración, perfecto para destacar 💯💨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/mandarin.webp"
+ },
+ {
+  "id": "million-gold",
+  "nombre": "Million Gold",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Aroma dulce, cálido y elegante con notas especiadas, maderas y ámbar ✨🌲. Intenso, moderno y muy llamativo, perfecto para destacar con estilo 💯💨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/million-gold.webp"
+ },
+ {
+  "id": "montblanc-explorer",
+  "nombre": "Montblanc Explorer",
+  "genero": "Hombre",
+  "familias": [
+   "Amaderado"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "✨ Fragancia fresca y aventurera que combina la chispa cítrica de la bergamota 🍋 con la intensidad de la pimienta negra 🌶️, envuelta en la profundidad del pachulí 🌿 y el ambroxan 🪵 que le da un toque moderno y elegante. Un aroma masculino, limpio y sofisticado 🌌🔥",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/montblanc-explorer.webp"
+ },
+ {
+  "id": "moschino-forever",
+  "nombre": "Moschino Forever",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco, limpio y elegante 😌 Con notas cítricas 🍋 y aromáticas que dan sensación de recién bañado Clásico moderno, masculino y muy versátil 💼 Perfecto para el día y uso diario ☀️✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/moschino-forever.webp"
+ },
+ {
+  "id": "myslf",
+  "nombre": "MYSLF",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Aromático con fondo amaderado y ámbar. Limpio, elegante y muy versátil",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/myslf.webp"
+ },
+ {
+  "id": "nautica-voyage",
+  "nombre": "Nautica Voyage",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Fresco y limpio 🌊 con notas verdes 🌿 y manzana 🍏. Ideal para el día ☀️, brindando una sensación acuática y relajante ✨.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/nautica-voyage.webp"
+ },
+ {
+  "id": "odyssey-mega-man",
+  "nombre": "Odyssey Mega Man (Armaf)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 180,
+  "descripcion": "Fresco y vibrante 🍊 con notas cítricas y especiadas 🌿. Perfecto para el día, con un aire energético y moderno ⚡.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/odyssey-mega-man.webp"
+ },
+ {
+  "id": "paco",
+  "nombre": "Paco (Paco Rabanne)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco, limpio y clásico 😌Con notas cítricas 🍋 y herbales que dan sensación natural",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/paco.webp"
+ },
+ {
+  "id": "paris-hilton-for-men",
+  "nombre": "Paris Hilton for Men",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco y tropical 🌴 con notas frutales 🥭 y verdes 🌿. Ideal para el día, con un estilo juvenil y relajado ☀️.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/paris-hilton-for-men.webp"
+ },
+ {
+  "id": "perry-ellis-reserve",
+  "nombre": "Perry Ellis Reserve",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Cítrico aromático 🍊 clásico. Tipo “aftershave limpio”, elegante pero sencillo.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/perry-ellis-reserve.webp"
+ },
+ {
+  "id": "polo-blue",
+  "nombre": "Polo Blue (Ralph Lauren)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Refrescante, limpio y súper atractivo 💙🧊. Polo Blue mezcla notas acuáticas con un toque frutal 🍈 que transmite elegancia relajada y seguridad en todo momento 😎✨.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/polo-blue.webp"
+ },
+ {
+  "id": "polo-red",
+  "nombre": "Polo Red (Ralph Lauren)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Vibrante y energético 🔴 con notas frutales 🍒 y café ☕. Perfecto para hombres activos que buscan un aroma intenso y moderno ⚡.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/polo-red.webp"
+ },
+ {
+  "id": "polo",
+  "nombre": "Polo – Ralph Lauren",
+  "genero": "Hombre",
+  "familias": [
+   "Amaderado"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Aroma clásico y sofisticado que abre con notas verdes intensas de pino 🌲 y lavanda 🌿, se suaviza con un toque fresco de melón 🍈 y evoluciona a un fondo profundo de musgo y tabaco 🚬 que transmite elegancia y carácter. Atemporal, masculino y muy distinguido 💫",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/polo.webp"
+ },
+ {
+  "id": "santal-33",
+  "nombre": "Santal 33 – Le Labo",
+  "genero": "Hombre",
+  "familias": [
+   "Amaderado"
+  ],
+  "mas_vendido": false,
+  "precio": 180,
+  "descripcion": "Aroma elegante y envolvente que destaca por el carácter cremoso del sándalo 🌳, combinado con la calidez del cedro 🌲 y un toque especiado de cardamomo 🌿, terminando en un fondo suave y adictivo de almizcle ✨. Sofisticado, moderno y con mucha personalidad 💫",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/santal-33.webp"
+ },
+ {
+  "id": "sauvage-elixir",
+  "nombre": "Sauvage Elixir",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Aroma intenso, especiado y elegante con lavanda, maderas y toques dulces 🌑✨. Súper potente, oscuro y sofisticado, hecho para destacar con presencia 💯💨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/sauvage-elixir.webp"
+ },
+ {
+  "id": "scandal",
+  "nombre": "Scandal",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Aroma dulce, cremoso y seductor con caramelo, tonka y mandarina 🍬🍊✨. Adictivo, llamativo y perfecto para cualquier ocasión 💯💨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/scandal.webp"
+ },
+ {
+  "id": "scandal-pour-homme",
+  "nombre": "Scandal Pour Homme",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Fragancia intensa y seductora que envuelve con un toque dulce y amaderado, creando un aroma poderoso, elegante y totalmente adictivo 🔥🍯🌙✨ Ideal para destacar con presencia, seguridad y mucho estilo 😎🖤",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/scandal-pour-homme.webp"
+ },
+ {
+  "id": "spicebomb-extreme",
+  "nombre": "Spicebomb Extreme",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "🔥 Intenso, cálido y seductor. La vainilla, el tabaco y la canela se mezclan con notas de whisky bourbon y azafrán para crear una fragancia masculina con mucha personalidad y excelente duración.",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/spicebomb-extreme.webp"
+ },
+ {
+  "id": "stronger-with-you",
+  "nombre": "Stronger With You",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Aroma dulce, intenso y adictivo con vainilla, ámbar y castaña 🌰✨. Muy potente, cálido y seductor, ideal para destacar de noche 💯💨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/stronger-with-you.webp"
+ },
+ {
+  "id": "swiss-army",
+  "nombre": "Swiss Army",
+  "genero": "Hombre",
+  "familias": [
+   "Amaderado"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Una fragancia fresca y energética que combina la chispa cítrica de la bergamota 🍋 con el toque herbal del cilantro 🌿 y la suavidad relajante de la lavanda 💜, cerrando con un fondo limpio de almizcle 🤍. Perfecta para un estilo activo y seguro 💪✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/swiss-army.webp"
+ },
+ {
+  "id": "tommy",
+  "nombre": "Tommy (Tommy Hilfiger)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Clásico fresco masculino.Limpio, juvenil y fácil de usar.✨ Notas: manzana, menta, cítricos🌿 Perfil: fresco, deportivo☀️ Ideal: diario",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/tommy.webp"
+ },
+ {
+  "id": "toy-boy",
+  "nombre": "Toy Boy",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Rosa especiada con toque dulce y elegante. Masculino, moderno y seductor",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/toy-boy.webp"
+ },
+ {
+  "id": "ultra-male",
+  "nombre": "Ultra Male",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Aroma dulce, intenso y provocador con pera, vainilla y canela 🍬✨. Potente, juvenil y súper seductor, perfecto para llamar la atención 💯💨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/ultra-male.webp"
+ },
+ {
+  "id": "valentino-born-in-roma-intense",
+  "nombre": "Valentino Born in Roma Intense",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce",
+   "Fresco",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Fragancia elegante y envolvente que combina la frescura aromática de la lavanda con la calidez dulce de la vainilla y la profundidad del vetiver 🌿💜✨ Un aroma moderno, sensual y sofisticado que deja huella 🔥🖤",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/valentino-born-in-roma-intense.webp"
+ },
+ {
+  "id": "valentino-extradose",
+  "nombre": "Valentino Extradose",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Una fragancia intensa y elegante que mezcla la frescura aromática de la lavanda con notas amaderadas profundas y un fondo sofisticado que impone presencia desde el primer spray. Perfecto para quien quiere oler fino, moderno y con mucha seguridad. 🔥",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/valentino-extradose.webp"
+ },
+ {
+  "id": "valentino-uomo-born-in-roma",
+  "nombre": "Valentino Uomo Born In Roma",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco mineral con toque salado. Masculino, urbano y sofisticado.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/valentino-uomo-born-in-roma.webp"
+ },
+ {
+  "id": "valentino-uomo-born-in-roma-rockstud-noir",
+  "nombre": "Valentino Uomo Born in Roma Rockstud Noir",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Más oscuro y masculino 🌑 con toque herbal y ámbar. Elegante pero moderno",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/valentino-uomo-born-in-roma-rockstud-noir.webp"
+ },
+ {
+  "id": "valentino-uomo-intense",
+  "nombre": "Valentino Uomo Intense",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Una fragancia elegante y seductora con notas de iris, vainilla, cuero y haba tonka. Ideal para quienes buscan dejar huella con un aroma intenso y sofisticado. 🖤🔥",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/valentino-uomo-intense.webp"
+ },
+ {
+  "id": "versace-eros",
+  "nombre": "Versace Eros",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Aroma dulce, intenso y seductor con vainilla, menta y maderas 🍦🌿. Potente, llamativo y muy masculino, perfecto para destacar y atraer miradas 💯💨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/versace-eros.webp"
+ },
+ {
+  "id": "versace-eros-flame",
+  "nombre": "Versace Eros Flame",
+  "genero": "Hombre",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Aroma intenso, cálido y seductor con vainilla, maderas y especias 🌶️✨. Potente, dulce y masculino, perfecto para destacar de noche 💯💨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/versace-eros-flame.webp"
+ },
+ {
+  "id": "y-eau-de-parfum",
+  "nombre": "Y Eau de Parfum (YSL)",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco y elegante 🌿 con un toque frutal 🍏 y fondo amaderado 🌳. Ideal para el día a día, proyectando confianza y sofisticación ✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/y-eau-de-parfum.webp"
+ },
+ {
+  "id": "yves-saint-laurent-y",
+  "nombre": "Yves Saint Laurent Y",
+  "genero": "Hombre",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Aroma fresco, limpio y moderno con notas cítricas y aromáticas. Versátil y elegante, ideal para el día a día",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/yves-saint-laurent-y.webp"
+ },
+ {
+  "id": "212",
+  "nombre": "212",
+  "genero": "Mujer",
+  "familias": [
+   "Floral",
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Floral fresco con toque limpio y elegante. Delicado, femenino y muy versátil.",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/212.webp"
+ },
+ {
+  "id": "212-vip-rose",
+  "nombre": "212 VIP Rosé",
+  "genero": "Mujer",
+  "familias": [
+   "Floral",
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Floral afrutado con champagne 🍓✨ elegante, femenino y fiestero 💕💃",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/212-vip-rose.webp"
+ },
+ {
+  "id": "5th-avenue",
+  "nombre": "5th Avenue",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Sofisticado y femenino con jazmín, magnolia y nardo. Huele a elegancia clásica y lujo discreto.",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/5th-avenue.webp"
+ },
+ {
+  "id": "acqua-di-gioia",
+  "nombre": "Acqua di Gioia",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Cítrico fresco con toque verde 🍋🌿 limpio, natural y súper elegante ✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/acqua-di-gioia.webp"
+ },
+ {
+  "id": "amarige-givenchy",
+  "nombre": "Amarige Givenchy",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Floral intenso y elegante con gardenia, mimosa y jazmín. Un perfume femenino clásico que transmite presencia y delicadeza al mismo tiempo.",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/amarige-givenchy.webp"
+ },
+ {
+  "id": "amor-amor-cacharel",
+  "nombre": "Amor Amor Cacharel",
+  "genero": "Mujer",
+  "familias": [
+   "Floral",
+   "Fresco"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "frutal con vainilla 🍓🍊 romántico, juvenil y súper coqueto 💕✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/amor-amor-cacharel.webp"
+ },
+ {
+  "id": "anais-anais",
+  "nombre": "Anaïs Anaïs",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Floral clásico y elegante con jazmín, lirio y madreselva. Un aroma femenino, delicado y lleno de suavidad.",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/anais-anais.webp"
+ },
+ {
+  "id": "baccarat-rouge-540",
+  "nombre": "Baccarat Rouge 540",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce elegante con ámbar y jazmín. Sofisticado, intenso y súper adictivo",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/baccarat-rouge-540.webp"
+ },
+ {
+  "id": "bae-kkw",
+  "nombre": "BAE KKW",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Avainillado cítrico 🥥🍊 suave, cremoso y súper atractivo ✨💫",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/bae-kkw.webp"
+ },
+ {
+  "id": "bebe",
+  "nombre": "Bebé",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Floral dulce con mango y maderas suaves. Romántico, delicado y encantador",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/bebe.webp"
+ },
+ {
+  "id": "bff-kkw",
+  "nombre": "BFF KKW",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce frutal con vainilla 🍓🍬 juvenil, divertido y súper girly ✨💕",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/bff-kkw.webp"
+ },
+ {
+  "id": "bianco-latte",
+  "nombre": "Bianco Latte",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": false,
+  "precio": 180,
+  "descripcion": "Dulce avainillado con caramelo 🍯🍦 cremoso, cálido y súper delicioso ✨🤍",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/bianco-latte.webp"
+ },
+ {
+  "id": "bright-crystal-versace",
+  "nombre": "Bright Crystal Versace",
+  "genero": "Mujer",
+  "familias": [
+   "Floral",
+   "Fresco",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Floral fresco con frutas 🍊🌸 delicado, femenino y elegante ✨💖",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/bright-crystal-versace.webp"
+ },
+ {
+  "id": "burberry-her",
+  "nombre": "Burberry Her",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Dulce frutal con frutos rojos 🍓✨ femenino, moderno y súper adictivo 💕",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/burberry-her.webp"
+ },
+ {
+  "id": "chance-eau-tendre",
+  "nombre": "Chance Eau Tendre – Chanel",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco",
+   "Nocturno"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco, floral y delicado ✨ 👉 Aroma suave y elegante con un toque afrutado, muy femenino 💕",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/chance-eau-tendre.webp"
+ },
+ {
+  "id": "cloud",
+  "nombre": "Cloud",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce cremoso con coco y vainilla. Suave, coqueto y adictivo.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/cloud.webp"
+ },
+ {
+  "id": "cloud-pink",
+  "nombre": "Cloud Pink",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce frutal tropical 🍍🍓 divertido, femenino y súper cute 💖✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/cloud-pink.webp"
+ },
+ {
+  "id": "coco-eau-de-parfum",
+  "nombre": "Coco Eau de Parfum – Chanel",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Ámbar especiado 🌶️✨ intenso, elegante y muy clásico 💎🔥",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/coco-eau-de-parfum.webp"
+ },
+ {
+  "id": "coco-mademoiselle",
+  "nombre": "Coco Mademoiselle",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Cítrico floral con fondo elegante. Clásico, sofisticado y atemporal.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/coco-mademoiselle.webp"
+ },
+ {
+  "id": "cry-baby",
+  "nombre": "Cry Baby",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 180,
+  "descripcion": "Dulce lactónico frutal 🍓🥛 suave, nostálgico y muy único 💕✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/cry-baby.webp"
+ },
+ {
+  "id": "devotion-d-g",
+  "nombre": "Devotion D&G",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce avainillado con limón 🍰🍋 cremoso, cálido y delicioso ✨💛",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/devotion-d-g.webp"
+ },
+ {
+  "id": "dkny-be-delicious",
+  "nombre": "DKNY Be Delicious",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco verde con manzana 🍏✨ limpio, jugoso y súper refrescante 💚💧",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/dkny-be-delicious.webp"
+ },
+ {
+  "id": "donna-born-in-roma-pink-pp",
+  "nombre": "Donna Born In Roma Pink PP – Valentino",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce y moderno ✨ 👉 Aroma cítrico con vainilla, femenino y juvenil",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/donna-born-in-roma-pink-pp.webp"
+ },
+ {
+  "id": "dylan-purple",
+  "nombre": "Dylan Purple – Versace",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco",
+   "Nocturno"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco, afrutado y elegante ✨ 👉 Aroma cítrico con frutas y flores, ligero pero sofisticado 💕",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/dylan-purple.webp"
+ },
+ {
+  "id": "eau-de-lacoste-l-12-12-natural",
+  "nombre": "Eau de Lacoste L.12.12 Natural",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce, tropical y fresco ✨ 👉 Aroma frutal con coco y piña, ligero y veraniego 💕",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/eau-de-lacoste-l-12-12-natural.webp"
+ },
+ {
+  "id": "eilish-billie-eilish",
+  "nombre": "Eilish Billie Eilish",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce avainillado con cacao 🍫✨ cálido, sexy y súper envolvente 🔥💛",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/eilish-billie-eilish.webp"
+ },
+ {
+  "id": "eternity-calvin-klein",
+  "nombre": "Eternity Calvin Klein",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Floral verde 🌿🌸 clásico, limpio y muy elegante ✨💛",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/eternity-calvin-klein.webp"
+ },
+ {
+  "id": "fame-couture",
+  "nombre": "Fame Couture",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce floral con toque cremoso y elegante. Sofisticado, moderno y muy femenino.",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/fame-couture.webp"
+ },
+ {
+  "id": "flower-by-kenzo",
+  "nombre": "Flower by Kenzo – Kenzo",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Floral y suave ✨ 👉 Aroma delicado con rosas y violeta, muy femenino 💕",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/flower-by-kenzo.webp"
+ },
+ {
+  "id": "gaultier-divine-le-parfum",
+  "nombre": "Gaultier Divine Le Parfum",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Ámbar floral tropical 🌺✨ cálido, elegante y súper sensual 🔥💛",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/gaultier-divine-le-parfum.webp"
+ },
+ {
+  "id": "good-girl-blush",
+  "nombre": "Good Girl Blush",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Floral dulce con vainilla 🌸🍦 femenino, delicado y muy coqueto 💖✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/good-girl-blush.webp"
+ },
+ {
+  "id": "good-girl-carolina-herrera",
+  "nombre": "Good Girl Carolina Herrera",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce avainillado con cacao 🍫✨ elegante, sexy y muy poderosa 🔥💃",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/good-girl-carolina-herrera.webp"
+ },
+ {
+  "id": "halloween",
+  "nombre": "Halloween",
+  "genero": "Mujer",
+  "familias": [
+   "Floral",
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Floral fresco con toque misterioso. Suave, femenino y encantador.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/halloween.webp"
+ },
+ {
+  "id": "i-love-love-moschino",
+  "nombre": "I Love Love Moschino",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Cítrico dulce 🍋🍊 fresco, energético y súper alegre ✨💃",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/i-love-love-moschino.webp"
+ },
+ {
+  "id": "irresistible",
+  "nombre": "Irresistible",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "floral con pera y rosa. Elegante, delicado y muy femenino.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/irresistible.webp"
+ },
+ {
+  "id": "la-belle-paradise",
+  "nombre": "La Belle Paradise",
+  "genero": "Mujer",
+  "familias": [
+   "Floral",
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce floral exótico. Sensual, tropical y llamativo.",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/la-belle-paradise.webp"
+ },
+ {
+  "id": "la-bomba",
+  "nombre": "La Bomba – Carolina Herrera",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco",
+   "Nocturno"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Floral, tropical y femenino ✨ 👉 Aroma con frutas y vainilla, vibrante y muy llamativo 💕",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/la-bomba.webp"
+ },
+ {
+  "id": "la-vie-est-belle",
+  "nombre": "La Vie Est Belle",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Dulce avainillado 🍫✨ intenso, elegante y súper duradero 💕",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/la-vie-est-belle.webp"
+ },
+ {
+  "id": "libre",
+  "nombre": "Libre",
+  "genero": "Mujer",
+  "familias": [
+   "Floral",
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Floral con vainilla y lavanda. Fuerte, elegante y muy femenino",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/libre.webp"
+ },
+ {
+  "id": "light-blue-d-g",
+  "nombre": "Light Blue D&G",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Cítrico fresco con limón 🍋🌊 limpio, ligero y perfecto para calor ☀️✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/light-blue-d-g.webp"
+ },
+ {
+  "id": "million-gold-for-her",
+  "nombre": "Million Gold For Her",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce floral 🍐✨ brillante, elegante y súper llamativo 💎",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/million-gold-for-her.webp"
+ },
+ {
+  "id": "miss-dior",
+  "nombre": "Miss Dior",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Floral con rosas 🌹✨ fresco, elegante y súper delicado",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/miss-dior.webp"
+ },
+ {
+  "id": "mod-vainilla",
+  "nombre": "Mod Vainilla",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "🤍 Dulce, femenina y adictiva. La vainilla cremosa, la ciruela y las notas florales crean una esencia elegante que deja huella donde quiera que vayas.",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/mod-vainilla.webp"
+ },
+ {
+  "id": "my-way",
+  "nombre": "My Way – Giorgio Armani",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Floral y elegante 💕 👉 Aroma femenino con flores blancas y toque sofisticado",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/my-way.webp"
+ },
+ {
+  "id": "olympea",
+  "nombre": "Olympéa – Rabanne",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce y sensual ✨ 👉 Vainilla con toque salado, elegante y muy envolvente",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/olympea.webp"
+ },
+ {
+  "id": "paris-hilton",
+  "nombre": "Paris Hilton",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Fresco y frutal 🍎🍈 juvenil, limpio y coqueto",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/paris-hilton.webp"
+ },
+ {
+  "id": "purr-katy-perry",
+  "nombre": "Purr Katy Perry",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce frutal con vainilla 🍑🍦 divertido, coqueto y súper cute 💜✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/purr-katy-perry.webp"
+ },
+ {
+  "id": "ralph-fresh",
+  "nombre": "Ralph Fresh",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Cítrico acuático 🍋💧 fresco, limpio y súper refrescante ✨☀️",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/ralph-fresh.webp"
+ },
+ {
+  "id": "selena-gomez-edp",
+  "nombre": "Selena Gomez EDP",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Dulce frutal con chocolate 🍫🍓 tropical, juvenil y súper rico 😍✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/selena-gomez-edp.webp"
+ },
+ {
+  "id": "sorbetto-rosso-escada",
+  "nombre": "Sorbetto Rosso Escada",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "frutal acuático 🍓🌊 fresco, veraniego y súper jugoso ☀️✨",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/sorbetto-rosso-escada.webp"
+ },
+ {
+  "id": "tommy-girl",
+  "nombre": "Tommy Girl",
+  "genero": "Mujer",
+  "familias": [
+   "Floral",
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Cítrico floral 🍋🌸 fresco, limpio y súper natural ✨💛",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/tommy-girl.webp"
+ },
+ {
+  "id": "tous-party",
+  "nombre": "Tous Party",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Frutal tropical con piña colada 🍍🥥 dulce, fresco y súper divertido ✨💖",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/tous-party.webp"
+ },
+ {
+  "id": "toy-2-bubble-gum",
+  "nombre": "Toy 2 Bubble Gum – Moschino",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Dulce y divertido 💕 👉 Aroma frutal tipo chicle, juvenil y súper llamativo",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/toy-2-bubble-gum.webp"
+ },
+ {
+  "id": "toy-2",
+  "nombre": "Toy 2 – Moschino",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Fresco y limpio ✨ 👉 Aroma suave con frutas y flores, ligero y diario",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/toy-2.webp"
+ },
+ {
+  "id": "valentino-donna-born-in-roma",
+  "nombre": "Valentino Donna Born In Roma",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 160,
+  "descripcion": "Avainillado afrutado 🍓✨ elegante, moderno y muy femenino 💕",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/valentino-donna-born-in-roma.webp"
+ },
+ {
+  "id": "valentino-donna-green",
+  "nombre": "Valentino Donna Green",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Una mezcla elegante de jazmín, vainilla 🍨y té lapsang con una vibra fresca, refinada y femenina.",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/valentino-donna-green.webp"
+ },
+ {
+  "id": "versense-versace",
+  "nombre": "Versense Versace",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Cítrico verde 🌿🍋 fresco, elegante y muy natural ✨💫",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/versense-versace.webp"
+ },
+ {
+  "id": "very-good-girl",
+  "nombre": "Very Good Girl",
+  "genero": "Mujer",
+  "familias": [
+   "Fresco"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce floral con lichi y vainilla. Sensual, femenina y muy llamativa.",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/very-good-girl.webp"
+ },
+ {
+  "id": "yara-candy",
+  "nombre": "Yara Candy",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 180,
+  "descripcion": "Dulce avainillado con frutas 🍓🍬 goloso, femenino y súper delicioso ✨💕",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/yara-candy.webp"
+ },
+ {
+  "id": "yara-lattafa",
+  "nombre": "Yara Lattafa",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": true,
+  "precio": 180,
+  "descripcion": "Dulce avainillado tropical 🍓🍦 cremoso, femenino y súper rico ✨💕",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/yara-lattafa.webp"
+ },
+ {
+  "id": "yum-boujee-marshmallow-81",
+  "nombre": "Yum Boujee Marshmallow | 81 – Kayali",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce",
+   "Nocturno"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce y cremoso ✨ 👉 Aroma tipo malvavisco con vainilla y fresa, súper rico y femenino 💕",
+  "sin_precio_en_sitio": false,
+  "imagen": "img/yum-boujee-marshmallow-81.webp"
+ },
+ {
+  "id": "yum-yum",
+  "nombre": "Yum Yum",
+  "genero": "Mujer",
+  "familias": [
+   "Dulce"
+  ],
+  "mas_vendido": false,
+  "precio": 160,
+  "descripcion": "Dulce frutal con vainilla cremosa. Divertido, juvenil y súper antojable",
+  "sin_precio_en_sitio": true,
+  "imagen": "img/yum-yum.webp"
+ }
+]
