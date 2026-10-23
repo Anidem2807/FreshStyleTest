@@ -135,14 +135,16 @@ function renderGrid() {
           <div class="meta">
             <span class="g">${esc(p.genero)} · ${esc((p.familias || [])[0] || '')}</span>
             <h3>${esc(p.nombre)}</h3>
-            <div class="row">
-              <b class="price"><small>desde</small> ${money(desde(p))}</b>
-              ${
-                out
-                  ? ''
-                  : `<button class="add ${n ? 'on' : ''}" data-ver="${esc(p.id)}" aria-label="Elegir presentación de ${esc(p.nombre)}">${n ? `${ICON_CHECK}<span>${n}</span>` : ICON_PLUS}</button>`
-              }
-            </div>
+            <dl class="mini-pres">${tamanos(state.tabla)
+              .map((ml) => `<div><dt>${ml} ml</dt><dd>${money(precioEn(p, ml, state.tabla))}</dd></div>`)
+              .join('')}</dl>
+            ${
+              out
+                ? ''
+                : `<button class="add wide ${n ? 'on' : ''}" data-ver="${esc(p.id)}" aria-label="Elegir presentación de ${esc(p.nombre)}">${
+                    n ? `${ICON_CHECK}<span>${n} en tu pedido</span>` : `${ICON_PLUS}<span>Agregar</span>`
+                  }</button>`
+            }
           </div>
         </article>`;
         })

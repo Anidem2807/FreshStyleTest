@@ -78,3 +78,17 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Precios de las cuatro presentaciones dentro de cada tarjeta */
+.mini-pres {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; margin: 6px 0 8px;
+  font-variant-numeric: tabular-nums;
+}
+.mini-pres div {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 4px;
+  padding: 4px 6px; border-radius: 8px; background: var(--bg-2); border: 1px solid var(--line);
+}
+.mini-pres dt { font-size: 11px; color: var(--muted); }
+.mini-pres dd { margin: 0; font-size: 13px; font-weight: 900; color: var(--gold-hi); }
+.add.wide { width: 100%; gap: 6px; font-weight: 700; font-size: 14px; }
+.add.wide svg { width: 18px; height: 18px; }

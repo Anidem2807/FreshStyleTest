@@ -16,10 +16,12 @@ const fila = (ml, tabla) => tabla.filas.find((f) => f.ml === ml);
 
 export const tamanos = (tabla) => tabla.filas.map((f) => f.ml);
 
-// Precio de un perfume en otra presentación. Si su precio de 35 ml no está en la tabla,
+// Precio de un perfume en otra presentación. Si la hoja no trae un precio propio y su precio de 35 ml no está en la tabla,
 // se calcula en proporción al nivel más cercano, redondeado a $5.
 export function precioEn(p, ml, tabla) {
   const base = Number(p.precio) || 0;
+  // Precio escrito en la hoja para este perfume (columnas "Precio 16 ml", etc.).
+  if (p.precios && p.precios[ml] !== undefined && p.precios[ml] !== '') return Number(p.precios[ml]);
   const f = fila(ml, tabla);
   if (!f || ml === ML_BASE) return base;
   if (f.precios[base] !== undefined) return Number(f.precios[base]);

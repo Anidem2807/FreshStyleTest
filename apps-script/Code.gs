@@ -10,6 +10,7 @@
  *      Copia la URL que termina en /exec y pégala en la app (Ajustes).
  *
  * Al actualizar desde una versión anterior, vuelve a ejecutar `configurar` (agrega lo nuevo sin borrar nada).
+ * Después aparece el menú FreshStyle en la hoja con esas mismas acciones.
  * Si después editas este código: Implementar → Gestionar implementaciones → ✏️ → Versión: Nueva.
  */
 
@@ -42,6 +43,14 @@ const PRESENTACIONES = [
 ];
 
 /* ---------- Instalación ---------- */
+
+// Menú "FreshStyle" en la hoja para no tener que abrir Apps Script.
+function onOpen() {
+  SpreadsheetApp.getUi().createMenu('FreshStyle')
+    .addItem('Actualizar hoja (pestañas y columnas)', 'configurar')
+    .addItem('Completar precios por presentación', 'completarPrecios')
+    .addToUi();
+}
 
 function configurar() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -77,6 +86,7 @@ function configurar() {
       "=IFERROR(QUERY(Detalle!A:J,\"select F, sum(G), sum(I) where J = 'Pagada' group by F order by sum(G) desc " +
       "limit 20 label F 'Producto', sum(G) 'Piezas', sum(I) 'Importe'\",1),\"Sin ventas aún\")");
   }
+  completarPrecios();
   const hoja1 = ss.getSheetByName('Hoja 1') || ss.getSheetByName('Sheet1');
   if (hoja1 && hoja1.getLastRow() === 0 && ss.getSheets().length > 1) ss.deleteSheet(hoja1);
 }
@@ -136,19 +146,80 @@ function leerCatalogo_() {
   const sh = hoja_('catalogo');
   const n = sh.getLastRow() - 1;
   if (n < 1) return [];
-  const filas = sh.getRange(2, 1, n, HOJAS.catalogo.columnas.length).getValues();
-  return filas.filter((f) => f[0] !== '' && f[1] !== '').map((f) => ({
-    id: String(f[0]),
-    nombre: String(f[1]),
-    genero: String(f[2]),
-    familias: String(f[3]).split(',').map((s) => s.trim()).filter(String),
-    precio: Number(f[4]) || 0,
-    descripcion: String(f[5]),
-    imagen: String(f[6]),
-    mas_vendido: esSi_(f[7]),
-    activo: f[8] === '' ? true : esSi_(f[8]),
-    stock: f[9] === '' ? null : Number(f[9]),
-  }));
+  const datos = sh.getRange(1, 1, n + 1, sh.getLastColumn()).getValues();
+  const colsPrecio = columnasPrecio_(datos[0]);
+  return datos.slice(1).filter((f) => f[0] !== '' && f[1] !== '').map((f) => {
+    const precios = {};
+    colsPrecio.forEach((c) => {
+      if (f[c.indice] !== '') precios[c.ml] = Number(f[c.indice]);
+    });
+    return {
+      id: String(f[0]),
+      nombre: String(f[1]),
+      genero: String(f[2]),
+      familias: String(f[3]).split(',').map((s) => s.trim()).filter(String),
+      precio: Number(f[4]) || 0,
+      descripcion: String(f[5]),
+      imagen: String(f[6]),
+      mas_vendido: esSi_(f[7]),
+      activo: f[8] === '' ? true : esSi_(f[8]),
+      stock: f[9] === '' ? null : Number(f[9]),
+      precios: precios,
+    };
+  });
+}
+
+// Columnas "Precio 16 ml", "Precio 25 ml"… del catálogo (el precio de 35 ml es la columna Precio).
+function columnasPrecio_(encabezados) {
+  return encabezados.map((h, indice) => {
+    const m = String(h).match(/^Precio (\d+) ml$/);
+    return m ? { ml: Number(m[1]), indice: indice } : null;
+  }).filter(Boolean);
+}
+
+// Agrega una columna de precio por presentación en Catalogo y llena las celdas vacías
+// con el precio de la tabla Presentaciones. No toca precios ya escritos.
+function completarPrecios() {
+  const sh = hoja_('catalogo');
+  const tabla = leerPresentaciones_() || tablaBase_();
+  let encabezados = sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0];
+  tabla.filas.forEach((f) => {
+    const nombre = 'Precio ' + f.ml + ' ml';
+    if (f.ml === 35 || encabezados.indexOf(nombre) >= 0) return;
+    const col = encabezados.filter(String).length + 1;
+    sh.getRange(1, col).setValue(nombre).setFontWeight('bold').setBackground('#1a1515').setFontColor('#d9b46a');
+    sh.getRange(2, col, Math.max(1, sh.getMaxRows() - 1), 1).setNumberFormat('$#,##0.00');
+    encabezados = sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0];
+  });
+  const n = sh.getLastRow() - 1;
+  if (n < 1) return;
+  const cols = columnasPrecio_(encabezados);
+  const datos = sh.getRange(2, 1, n, encabezados.length).getValues();
+  cols.forEach((c) => {
+    const valores = datos.map((f) => [f[c.indice] !== '' || f[0] === '' ? f[c.indice] : precioEn_(Number(f[4]), c.ml, tabla)]);
+    sh.getRange(2, c.indice + 1, n, 1).setValues(valores);
+  });
+}
+
+function tablaBase_() {
+  const niveles = PRESENTACIONES[0].slice(2).map((h) => Number(String(h).replace(/[^\d.]/g, '')));
+  return {
+    filas: PRESENTACIONES.slice(1).map((f) => {
+      const precios = {};
+      niveles.forEach((n, k) => (precios[n] = f[k + 2]));
+      return { ml: f[0], relleno: f[1], precios: precios };
+    }),
+  };
+}
+
+// Igual que precioEn() de la app: tabla por nivel de precio de 35 ml, o proporción redondeada a $5.
+function precioEn_(base, ml, tabla) {
+  const f = tabla.filas.filter((x) => x.ml === ml)[0];
+  if (!f || !base) return '';
+  if (f.precios[base] !== undefined) return Number(f.precios[base]);
+  const niveles = Object.keys(f.precios).map(Number);
+  const nivel = niveles.reduce((a, b) => (Math.abs(b - base) < Math.abs(a - base) ? b : a));
+  return Math.round((base * f.precios[nivel]) / nivel / 5) * 5;
 }
 
 function leerPresentaciones_() {
@@ -177,6 +248,7 @@ function cargarCatalogo_(productos) {
   const filas = productos.map((p) => [p.id, p.nombre, p.genero, (p.familias || []).join(', '), p.precio,
     p.descripcion, p.imagen, p.mas_vendido ? 'Sí' : 'No', 'Sí', '']);
   if (filas.length) sh.getRange(2, 1, filas.length, filas[0].length).setValues(filas);
+  completarPrecios();
   return { ok: true, cargados: filas.length };
 }
 

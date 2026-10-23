@@ -23,8 +23,9 @@ Se vende en **16, 25, 35 y 60 ml**. El precio del catálogo es el de **35 ml** y
 
 - **Al vender:** elige la presentación arriba del catálogo y todos los precios cambian. En el cobro, cada perfume se puede cambiar de tamaño y marcar como **Envase rellenado**, que aplica el descuento de ese tamaño.
 - **En la hoja:** la pestaña *Detalle* guarda la presentación, si fue rellenado y el descuento aplicado.
-- **Si cambian los precios:** edita la pestaña *Presentaciones*. Para otro nivel de precio agrega una columna (por ejemplo `$200`). Si un perfume tiene un precio que no está en la tabla, la app calcula sus otras presentaciones en proporción, redondeado a $5.
-- **Catálogo de clientes:** muestra "desde $90" en cada perfume y el cliente elige la presentación al agregarlo a su pedido.
+- **Precio por perfume:** la pestaña *Catalogo* tiene las columnas **Precio 16 ml, Precio 25 ml y Precio 60 ml** (el de 35 ml es *Precio*), ya llenas con la tabla. Cambia ahí el precio de un perfume en particular. Si borras una celda, ese tamaño vuelve a calcularse con la tabla.
+- **Si cambian los precios de todos:** edita la pestaña *Presentaciones* y usa el menú **FreshStyle → Completar precios por presentación** (solo llena celdas vacías). Para otro nivel de precio agrega una columna (por ejemplo `$200`). Si un perfume tiene un precio que no está en la tabla, la app calcula sus otras presentaciones en proporción, redondeado a $5.
+- **Catálogo de clientes:** cada perfume muestra sus cuatro presentaciones con precio, y el cliente elige el tamaño al agregarlo a su pedido.
 
 ## 1. Conectar Google Sheets (una sola vez, ~5 min)
 
